@@ -15,7 +15,7 @@ struct PieChartSubSliceShape: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let center = CGPoint(x: rect.midX, y: rect.midY)
-        let size = min(rect.width, rect.height)
+        let size = min(rect.width / 2, rect.height / 2)
         
         let firstRadius = size
         let secondRadius = size / 2

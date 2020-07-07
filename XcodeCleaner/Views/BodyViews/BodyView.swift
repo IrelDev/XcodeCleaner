@@ -18,7 +18,7 @@ struct BodyView: View {
             GeometryReader { geometryReader in
                 VStack {
                     PieChartView(items: self.viewModel.getPCItems(), sliceSeparatorColor: .black)
-                        .frame(width: geometryReader.size.width / 4, height: geometryReader.size.height / 4)
+                        .frame(width: geometryReader.size.width / 2, height: geometryReader.size.height / 2)
                         .animation(.easeInOut(duration: 0.3))
                 }
             }

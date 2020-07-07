@@ -1,0 +1,16 @@
+//
+//  PieChartViewModelProtocol.swift
+//  XcodeCleaner
+//
+//  Created by Kirill Pustovalov on 07.07.2020.
+//  Copyright © 2020 Kirill Pustovalov. All rights reserved.
+//
+
+import Foundation
+
+protocol PieChartViewModelProtocol {
+    var items: [PieChartItemModel] { get set }
+    
+    mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel])
+    func getPCItems() -> PCItems
+}

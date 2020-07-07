@@ -13,6 +13,8 @@
 		9DD3BA7724B4639700EDA308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7624B4639700EDA308 /* Assets.xcassets */; };
 		9DD3BA7A24B4639700EDA308 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7924B4639700EDA308 /* Preview Assets.xcassets */; };
 		9DD3BA7D24B4639700EDA308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7B24B4639700EDA308 /* Main.storyboard */; };
+		9DD3BA8B24B465B800EDA308 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA8924B465B800EDA308 /* README.md */; };
+		9DD3BA8C24B465B800EDA308 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA8A24B465B800EDA308 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		9DD3BA7C24B4639700EDA308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9DD3BA7E24B4639700EDA308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DD3BA7F24B4639700EDA308 /* XcodeCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XcodeCleaner.entitlements; sourceTree = "<group>"; };
+		9DD3BA8924B465B800EDA308 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9DD3BA8A24B465B800EDA308 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 		9DD3BA6324B4639400EDA308 = {
 			isa = PBXGroup;
 			children = (
+				9DD3BA8A24B465B800EDA308 /* LICENSE */,
+				9DD3BA8924B465B800EDA308 /* README.md */,
 				9DD3BA6E24B4639400EDA308 /* XcodeCleaner */,
 				9DD3BA6D24B4639400EDA308 /* Products */,
 			);
@@ -137,7 +143,9 @@
 			files = (
 				9DD3BA7D24B4639700EDA308 /* Main.storyboard in Resources */,
 				9DD3BA7A24B4639700EDA308 /* Preview Assets.xcassets in Resources */,
+				9DD3BA8B24B465B800EDA308 /* README.md in Resources */,
 				9DD3BA7724B4639700EDA308 /* Assets.xcassets in Resources */,
+				9DD3BA8C24B465B800EDA308 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

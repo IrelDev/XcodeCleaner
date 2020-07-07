@@ -106,4 +106,25 @@ struct DirectoryManager {
         
         return result
     }
+    func cleanDirectory(forType type: DirectoryType) {
+        let fileManager = FileManager.default
+        
+        var directoryPath: String
+        switch type {
+        case .derivedData:
+            directoryPath = getDerivedDataPath()
+        case .deviceSupport:
+            directoryPath = getDeviceSupportPath()
+        case .archives:
+            directoryPath = getArchivesPath()
+        }
+        
+        let directoryURL = URL(fileURLWithPath: normalizeDirectoryPath(directory: directoryPath))
+        
+        do {
+            try fileManager.removeItem(at: directoryURL)
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }

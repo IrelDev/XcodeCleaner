@@ -12,21 +12,21 @@ struct PieChartViewModel: PieChartViewModelProtocol {
     var items: [PieChartItemModel] = []
     
     mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel]) {
-        var derivedDataSize: Int64 = 1
+        var derivedDataSize: Int64 = 0
         derivedData.forEach {
             derivedDataSize += $0.size
         }
         
         let derivedData = PieChartItemModel(value: Double(derivedDataSize), color: .pink)
         
-        var deviceSupportSize: Int64 = 1
+        var deviceSupportSize: Int64 = 0
         deviceSupport.forEach {
             deviceSupportSize += $0.size
         }
         
         let deviceSupport = PieChartItemModel(value: Double(deviceSupportSize), color: Color(.cyan))
         
-        var archivesSize: Int64 = 1
+        var archivesSize: Int64 = 0
         archives.forEach {
             archivesSize += $0.size
         }

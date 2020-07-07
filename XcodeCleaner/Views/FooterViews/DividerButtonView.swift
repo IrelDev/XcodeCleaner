@@ -10,13 +10,13 @@ import SwiftUI
 
 struct DividerButtonView: View {
     var divider = VStack { Divider() }
-    @EnvironmentObject var footerViewModel: ViewModel
+    @EnvironmentObject var viewModel: ViewModel
     
     var body: some View {
         HStack {
             divider
-            Button("Scan") {
-                self.footerViewModel.startScan()
+            Button("\(viewModel.isReadyToBeCleaned ? "Clean": "Scan")") {
+                self.viewModel.isReadyToBeCleaned ? self.viewModel.startClean(): self.viewModel.startScan()
             }
             .cornerRadius(25)
             divider

@@ -22,6 +22,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     @Published var deviceSupport: [DirectoryModel] = []
     @Published var archives: [DirectoryModel] = []
     
+    @Published var isReadyToBeCleaned = false
+    
     var scanProgress: Double {
         directoriesCount == 0 ? 0: Double(analyzedDirectoriesCount) / Double(directoriesCount)
     }
@@ -47,6 +49,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)
             
             self.isScanStarted.toggle()
+            self.isReadyToBeCleaned.toggle()
             
             DispatchQueue.main.async {
                 self.objectWillChange.send()
@@ -110,5 +113,13 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         viewModel.createItems(derivedData: derivedData, deviceSupport: deviceSupport, archives: archives)
         
         return viewModel
+    }
+    //add chosen type
+    func startClean() {
+        directoryManager.cleanDirectory(forType: .derivedData)
+        directoryManager.cleanDirectory(forType: .deviceSupport)
+        directoryManager.cleanDirectory(forType: .archives)
+        
+        self.isReadyToBeCleaned.toggle()
     }
 }

@@ -15,6 +15,37 @@
 		9DD3BA7D24B4639700EDA308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7B24B4639700EDA308 /* Main.storyboard */; };
 		9DD3BA8B24B465B800EDA308 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA8924B465B800EDA308 /* README.md */; };
 		9DD3BA8C24B465B800EDA308 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 9DD3BA8A24B465B800EDA308 /* LICENSE */; };
+		9DD3BA8E24B478AE00EDA308 /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA8D24B478AE00EDA308 /* DirectoryManager.swift */; };
+		9DD3BA9024B478B600EDA308 /* DirectoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA8F24B478B600EDA308 /* DirectoryType.swift */; };
+		9DD3BA9424B478C900EDA308 /* DirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA9224B478C900EDA308 /* DirectoryModel.swift */; };
+		9DD3BA9524B478C900EDA308 /* StatisticModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA9324B478C900EDA308 /* StatisticModel.swift */; };
+		9DD3BA9E24B4791900EDA308 /* DropDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA9B24B4791900EDA308 /* DropDownView.swift */; };
+		9DD3BA9F24B4791900EDA308 /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA9C24B4791900EDA308 /* BodyView.swift */; };
+		9DD3BAA024B4791900EDA308 /* DirectoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA9D24B4791900EDA308 /* DirectoryListView.swift */; };
+		9DD3BAA224B4793900EDA308 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAA124B4793900EDA308 /* FooterView.swift */; };
+		9DD3BAA424B4794300EDA308 /* DividerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAA324B4794300EDA308 /* DividerButtonView.swift */; };
+		9DD3BAA624B4794800EDA308 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAA524B4794800EDA308 /* StatisticView.swift */; };
+		9DD3BAA824B4794C00EDA308 /* ScanProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAA724B4794C00EDA308 /* ScanProgressView.swift */; };
+		9DD3BAAE24B4796C00EDA308 /* StatisticViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAAA24B4796C00EDA308 /* StatisticViewModel.swift */; };
+		9DD3BAAF24B4796C00EDA308 /* PieChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAAB24B4796C00EDA308 /* PieChartViewModel.swift */; };
+		9DD3BAB024B4796C00EDA308 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAAC24B4796C00EDA308 /* ViewModel.swift */; };
+		9DD3BAB124B4796C00EDA308 /* DirectoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAAD24B4796C00EDA308 /* DirectoryListViewModel.swift */; };
+		9DD3BAB724B4798E00EDA308 /* DirectoryListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAB324B4798E00EDA308 /* DirectoryListViewModelProtocol.swift */; };
+		9DD3BAB824B4798E00EDA308 /* PieChartViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAB424B4798E00EDA308 /* PieChartViewModelProtocol.swift */; };
+		9DD3BAB924B4798E00EDA308 /* ViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAB524B4798E00EDA308 /* ViewModelProtocol.swift */; };
+		9DD3BABA24B4798E00EDA308 /* StatisticViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAB624B4798E00EDA308 /* StatisticViewModelProtocol.swift */; };
+		9DD3BABD24B479BF00EDA308 /* BytesToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BABC24B479BF00EDA308 /* BytesToStringFormatter.swift */; };
+		9DD3BAC024B479DF00EDA308 /* PieChartSliceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BABF24B479DF00EDA308 /* PieChartSliceFactory.swift */; };
+		9DD3BAC524B479ED00EDA308 /* PieChartSubSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC224B479ED00EDA308 /* PieChartSubSliceView.swift */; };
+		9DD3BAC624B479ED00EDA308 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC324B479ED00EDA308 /* PieChartView.swift */; };
+		9DD3BAC724B479ED00EDA308 /* PieChartSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC424B479ED00EDA308 /* PieChartSliceView.swift */; };
+		9DD3BACB24B47A0400EDA308 /* PieChartSubSliceShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC924B47A0400EDA308 /* PieChartSubSliceShape.swift */; };
+		9DD3BACC24B47A0400EDA308 /* PieChartSliceShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BACA24B47A0400EDA308 /* PieChartSliceShape.swift */; };
+		9DD3BAD224B47A1E00EDA308 /* PieChartSliceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BACE24B47A1D00EDA308 /* PieChartSliceModel.swift */; };
+		9DD3BAD324B47A1E00EDA308 /* PieChartObservableItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BACF24B47A1E00EDA308 /* PieChartObservableItemsModel.swift */; };
+		9DD3BAD424B47A1E00EDA308 /* PieChartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */; };
+		9DD3BAD524B47A1E00EDA308 /* PieChartSubSliceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */; };
+		9DD3BAD824B47A4800EDA308 /* PieChartAnySliceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +60,37 @@
 		9DD3BA7F24B4639700EDA308 /* XcodeCleaner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = XcodeCleaner.entitlements; sourceTree = "<group>"; };
 		9DD3BA8924B465B800EDA308 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9DD3BA8A24B465B800EDA308 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		9DD3BA8D24B478AE00EDA308 /* DirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
+		9DD3BA8F24B478B600EDA308 /* DirectoryType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryType.swift; sourceTree = "<group>"; };
+		9DD3BA9224B478C900EDA308 /* DirectoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryModel.swift; sourceTree = "<group>"; };
+		9DD3BA9324B478C900EDA308 /* StatisticModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticModel.swift; sourceTree = "<group>"; };
+		9DD3BA9B24B4791900EDA308 /* DropDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropDownView.swift; sourceTree = "<group>"; };
+		9DD3BA9C24B4791900EDA308 /* BodyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		9DD3BA9D24B4791900EDA308 /* DirectoryListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryListView.swift; sourceTree = "<group>"; };
+		9DD3BAA124B4793900EDA308 /* FooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		9DD3BAA324B4794300EDA308 /* DividerButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DividerButtonView.swift; sourceTree = "<group>"; };
+		9DD3BAA524B4794800EDA308 /* StatisticView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
+		9DD3BAA724B4794C00EDA308 /* ScanProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanProgressView.swift; sourceTree = "<group>"; };
+		9DD3BAAA24B4796C00EDA308 /* StatisticViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticViewModel.swift; sourceTree = "<group>"; };
+		9DD3BAAB24B4796C00EDA308 /* PieChartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewModel.swift; sourceTree = "<group>"; };
+		9DD3BAAC24B4796C00EDA308 /* ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9DD3BAAD24B4796C00EDA308 /* DirectoryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryListViewModel.swift; sourceTree = "<group>"; };
+		9DD3BAB324B4798E00EDA308 /* DirectoryListViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryListViewModelProtocol.swift; sourceTree = "<group>"; };
+		9DD3BAB424B4798E00EDA308 /* PieChartViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewModelProtocol.swift; sourceTree = "<group>"; };
+		9DD3BAB524B4798E00EDA308 /* ViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModelProtocol.swift; sourceTree = "<group>"; };
+		9DD3BAB624B4798E00EDA308 /* StatisticViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticViewModelProtocol.swift; sourceTree = "<group>"; };
+		9DD3BABC24B479BF00EDA308 /* BytesToStringFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesToStringFormatter.swift; sourceTree = "<group>"; };
+		9DD3BABF24B479DF00EDA308 /* PieChartSliceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceFactory.swift; sourceTree = "<group>"; };
+		9DD3BAC224B479ED00EDA308 /* PieChartSubSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceView.swift; sourceTree = "<group>"; };
+		9DD3BAC324B479ED00EDA308 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		9DD3BAC424B479ED00EDA308 /* PieChartSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceView.swift; sourceTree = "<group>"; };
+		9DD3BAC924B47A0400EDA308 /* PieChartSubSliceShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceShape.swift; sourceTree = "<group>"; };
+		9DD3BACA24B47A0400EDA308 /* PieChartSliceShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceShape.swift; sourceTree = "<group>"; };
+		9DD3BACE24B47A1D00EDA308 /* PieChartSliceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceModel.swift; sourceTree = "<group>"; };
+		9DD3BACF24B47A1E00EDA308 /* PieChartObservableItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartObservableItemsModel.swift; sourceTree = "<group>"; };
+		9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartItemModel.swift; sourceTree = "<group>"; };
+		9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceModel.swift; sourceTree = "<group>"; };
+		9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartAnySliceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +126,14 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */,
-				9DD3BA7124B4639400EDA308 /* ContentView.swift */,
+				9DD3BA8D24B478AE00EDA308 /* DirectoryManager.swift */,
+				9DD3BA8F24B478B600EDA308 /* DirectoryType.swift */,
+				9DD3BA9624B478CC00EDA308 /* Views */,
+				9DD3BA9124B478C100EDA308 /* Models */,
+				9DD3BAA924B4795A00EDA308 /* ViewModels */,
+				9DD3BAB224B4798200EDA308 /* Protocols */,
+				9DD3BABB24B479B300EDA308 /* Helpers */,
+				9DD3BABE24B479C900EDA308 /* PieChart */,
 				9DD3BA7624B4639700EDA308 /* Assets.xcassets */,
 				9DD3BA7B24B4639700EDA308 /* Main.storyboard */,
 				9DD3BA7E24B4639700EDA308 /* Info.plist */,
@@ -81,6 +150,126 @@
 				9DD3BA7924B4639700EDA308 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9DD3BA9124B478C100EDA308 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BA9224B478C900EDA308 /* DirectoryModel.swift */,
+				9DD3BA9324B478C900EDA308 /* StatisticModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DD3BA9624B478CC00EDA308 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BA7124B4639400EDA308 /* ContentView.swift */,
+				9DD3BA9924B478FD00EDA308 /* BodyViews */,
+				9DD3BA9A24B4790200EDA308 /* FooterViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DD3BA9924B478FD00EDA308 /* BodyViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BA9C24B4791900EDA308 /* BodyView.swift */,
+				9DD3BA9D24B4791900EDA308 /* DirectoryListView.swift */,
+				9DD3BA9B24B4791900EDA308 /* DropDownView.swift */,
+			);
+			path = BodyViews;
+			sourceTree = "<group>";
+		};
+		9DD3BA9A24B4790200EDA308 /* FooterViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BAA124B4793900EDA308 /* FooterView.swift */,
+				9DD3BAA324B4794300EDA308 /* DividerButtonView.swift */,
+				9DD3BAA524B4794800EDA308 /* StatisticView.swift */,
+				9DD3BAA724B4794C00EDA308 /* ScanProgressView.swift */,
+			);
+			path = FooterViews;
+			sourceTree = "<group>";
+		};
+		9DD3BAA924B4795A00EDA308 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BAAC24B4796C00EDA308 /* ViewModel.swift */,
+				9DD3BAAD24B4796C00EDA308 /* DirectoryListViewModel.swift */,
+				9DD3BAAB24B4796C00EDA308 /* PieChartViewModel.swift */,
+				9DD3BAAA24B4796C00EDA308 /* StatisticViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9DD3BAB224B4798200EDA308 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BAB524B4798E00EDA308 /* ViewModelProtocol.swift */,
+				9DD3BAB424B4798E00EDA308 /* PieChartViewModelProtocol.swift */,
+				9DD3BAB324B4798E00EDA308 /* DirectoryListViewModelProtocol.swift */,
+				9DD3BAB624B4798E00EDA308 /* StatisticViewModelProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9DD3BABB24B479B300EDA308 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BABC24B479BF00EDA308 /* BytesToStringFormatter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9DD3BABE24B479C900EDA308 /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BABF24B479DF00EDA308 /* PieChartSliceFactory.swift */,
+				9DD3BAC124B479E500EDA308 /* Views */,
+				9DD3BAC824B479F300EDA308 /* Shapes */,
+				9DD3BACD24B47A1000EDA308 /* Models */,
+				9DD3BAD624B47A2300EDA308 /* Protocols */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		9DD3BAC124B479E500EDA308 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BAC424B479ED00EDA308 /* PieChartSliceView.swift */,
+				9DD3BAC224B479ED00EDA308 /* PieChartSubSliceView.swift */,
+				9DD3BAC324B479ED00EDA308 /* PieChartView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DD3BAC824B479F300EDA308 /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BACA24B47A0400EDA308 /* PieChartSliceShape.swift */,
+				9DD3BAC924B47A0400EDA308 /* PieChartSubSliceShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
+		9DD3BACD24B47A1000EDA308 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */,
+				9DD3BACF24B47A1E00EDA308 /* PieChartObservableItemsModel.swift */,
+				9DD3BACE24B47A1D00EDA308 /* PieChartSliceModel.swift */,
+				9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9DD3BAD624B47A2300EDA308 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +346,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DD3BA7224B4639400EDA308 /* ContentView.swift in Sources */,
+				9DD3BA9524B478C900EDA308 /* StatisticModel.swift in Sources */,
+				9DD3BAD424B47A1E00EDA308 /* PieChartItemModel.swift in Sources */,
+				9DD3BAC624B479ED00EDA308 /* PieChartView.swift in Sources */,
+				9DD3BA9F24B4791900EDA308 /* BodyView.swift in Sources */,
+				9DD3BA9024B478B600EDA308 /* DirectoryType.swift in Sources */,
+				9DD3BACC24B47A0400EDA308 /* PieChartSliceShape.swift in Sources */,
+				9DD3BAA824B4794C00EDA308 /* ScanProgressView.swift in Sources */,
+				9DD3BAC524B479ED00EDA308 /* PieChartSubSliceView.swift in Sources */,
+				9DD3BA8E24B478AE00EDA308 /* DirectoryManager.swift in Sources */,
+				9DD3BAB024B4796C00EDA308 /* ViewModel.swift in Sources */,
+				9DD3BA9424B478C900EDA308 /* DirectoryModel.swift in Sources */,
+				9DD3BAA224B4793900EDA308 /* FooterView.swift in Sources */,
+				9DD3BAC724B479ED00EDA308 /* PieChartSliceView.swift in Sources */,
+				9DD3BA9E24B4791900EDA308 /* DropDownView.swift in Sources */,
+				9DD3BABD24B479BF00EDA308 /* BytesToStringFormatter.swift in Sources */,
+				9DD3BABA24B4798E00EDA308 /* StatisticViewModelProtocol.swift in Sources */,
+				9DD3BAAE24B4796C00EDA308 /* StatisticViewModel.swift in Sources */,
+				9DD3BAD524B47A1E00EDA308 /* PieChartSubSliceModel.swift in Sources */,
+				9DD3BAB924B4798E00EDA308 /* ViewModelProtocol.swift in Sources */,
+				9DD3BACB24B47A0400EDA308 /* PieChartSubSliceShape.swift in Sources */,
+				9DD3BAA624B4794800EDA308 /* StatisticView.swift in Sources */,
+				9DD3BAA424B4794300EDA308 /* DividerButtonView.swift in Sources */,
 				9DD3BA7024B4639400EDA308 /* AppDelegate.swift in Sources */,
+				9DD3BAA024B4791900EDA308 /* DirectoryListView.swift in Sources */,
+				9DD3BAAF24B4796C00EDA308 /* PieChartViewModel.swift in Sources */,
+				9DD3BAD224B47A1E00EDA308 /* PieChartSliceModel.swift in Sources */,
+				9DD3BAB824B4798E00EDA308 /* PieChartViewModelProtocol.swift in Sources */,
+				9DD3BAB124B4796C00EDA308 /* DirectoryListViewModel.swift in Sources */,
+				9DD3BAC024B479DF00EDA308 /* PieChartSliceFactory.swift in Sources */,
+				9DD3BAD324B47A1E00EDA308 /* PieChartObservableItemsModel.swift in Sources */,
 				9DD3BA7524B4639400EDA308 /* XcodeCleaner.xcdatamodeld in Sources */,
+				9DD3BAB724B4798E00EDA308 /* DirectoryListViewModelProtocol.swift in Sources */,
+				9DD3BAD824B47A4800EDA308 /* PieChartAnySliceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

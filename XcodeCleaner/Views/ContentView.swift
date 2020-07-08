@@ -15,6 +15,11 @@ struct ContentView: View {
             BodyView(viewModel: viewModel.getViewModelForPieChart())
             FooterView()
         }
+        .alert(isPresented: $viewModel.isAlertPresented) {
+            Alert(title: Text("Clean finished"), message: Text("\(BytesToStringFormatter.format(size: viewModel.totalSize)) was successfully cleaned!"), dismissButton: .default(Text("Ok")))
+        }.onDisappear {
+            self.viewModel.cleanBeforeScan()
+        }
     }
 }
 

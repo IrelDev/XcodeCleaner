@@ -24,6 +24,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     
     @Published var isReadyToBeCleaned = false
     
+    @Published var isAlertPresented = false
+    
     var scanProgress: Double {
         directoriesCount == 0 ? 0: Double(analyzedDirectoriesCount) / Double(directoriesCount)
     }
@@ -116,10 +118,18 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     }
     //add chosen type
     func startClean() {
-        directoryManager.cleanDirectory(forType: .derivedData)
-        directoryManager.cleanDirectory(forType: .deviceSupport)
-        directoryManager.cleanDirectory(forType: .archives)
-        
-        self.isReadyToBeCleaned.toggle()
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.directoryManager.cleanDirectory(forType: .derivedData)
+            self.directoryManager.cleanDirectory(forType: .deviceSupport)
+            self.directoryManager.cleanDirectory(forType: .archives)
+            
+            DispatchQueue.main.async {
+                print(self.totalSize)
+                self.isAlertPresented.toggle()
+                self.objectWillChange.send()
+                
+                self.isReadyToBeCleaned.toggle()
+            }
+        }
     }
 }

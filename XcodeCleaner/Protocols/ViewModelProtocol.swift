@@ -23,6 +23,8 @@ protocol ViewModelProtocol {
     
     var isReadyToBeCleaned: Bool { get set }
     
+    var isAlertPresented: Bool { get set }
+    
     func startScan()
     func calculateSize(ofDirectory: inout [DirectoryModel], subDirectories: [String], type: DirectoryType)
     func getViewModelForItemList(forType type: DirectoryType) -> DirectoryListViewModelProtocol

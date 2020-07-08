@@ -9,13 +9,11 @@
 import SwiftUI
 
 struct StatisticView: View {
-    var totalCleaned: String = String(format: "%.2f", 22.7800)
-    var lastTimeCleaned: String?
-    
+    var viewModel: StatisticViewModelProtocol
     var body: some View {
         VStack(alignment: .trailing) {
-            Text("Total cleaned: \(totalCleaned) GB")
-            Text("Last time cleaned: \(lastTimeCleaned ?? "none")")
+            Text("Total cleaned: \(viewModel.getTotalSize())")
+            Text("Last cleanup: \(viewModel.getLastDate())")
             Text("Github: IrelDev")
         }
         .font(.footnote)
@@ -24,6 +22,6 @@ struct StatisticView: View {
 
 struct StatisticView_Previews: PreviewProvider {
     static var previews: some View {
-        StatisticView()
+        StatisticView(viewModel: StatisticViewModel(statistic: StatisticModel(totalCleaned: 250000, lastTimeCleaned: Date())))
     }
 }

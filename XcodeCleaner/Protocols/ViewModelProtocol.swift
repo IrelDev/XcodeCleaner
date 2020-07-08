@@ -30,6 +30,7 @@ protocol ViewModelProtocol {
     func getViewModelForItemList(forType type: DirectoryType) -> DirectoryListViewModelProtocol
     func cleanBeforeScan()
     func getViewModelForPieChart() -> PieChartViewModelProtocol
+    func getViewModelForStatistic() -> StatisticViewModelProtocol
     
     func startClean()
 }

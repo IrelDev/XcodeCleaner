@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DCE1C0B24B582D200E49E6D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */; };
 		9DD3BA7024B4639400EDA308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */; };
 		9DD3BA7224B4639400EDA308 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7124B4639400EDA308 /* ContentView.swift */; };
 		9DD3BA7524B4639400EDA308 /* XcodeCleaner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7324B4639400EDA308 /* XcodeCleaner.xcdatamodeld */; };
@@ -46,9 +47,11 @@
 		9DD3BAD424B47A1E00EDA308 /* PieChartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */; };
 		9DD3BAD524B47A1E00EDA308 /* PieChartSubSliceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */; };
 		9DD3BAD824B47A4800EDA308 /* PieChartAnySliceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */; };
+		9DDFA81D24B58F47008C2C2A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA81C24B58F47008C2C2A /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9DD3BA6C24B4639400EDA308 /* XcodeCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DD3BA7124B4639400EDA308 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -91,6 +94,7 @@
 		9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartItemModel.swift; sourceTree = "<group>"; };
 		9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceModel.swift; sourceTree = "<group>"; };
 		9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartAnySliceProtocol.swift; sourceTree = "<group>"; };
+		9DDFA81C24B58F47008C2C2A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,8 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */,
-				9DD3BA8D24B478AE00EDA308 /* DirectoryManager.swift */,
 				9DD3BA8F24B478B600EDA308 /* DirectoryType.swift */,
+				9DD3BA8D24B478AE00EDA308 /* DirectoryManager.swift */,
+				9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */,
 				9DD3BA9624B478CC00EDA308 /* Views */,
 				9DD3BA9124B478C100EDA308 /* Models */,
 				9DD3BAA924B4795A00EDA308 /* ViewModels */,
@@ -218,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BABC24B479BF00EDA308 /* BytesToStringFormatter.swift */,
+				9DDFA81C24B58F47008C2C2A /* DateManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 				9DD3BAA424B4794300EDA308 /* DividerButtonView.swift in Sources */,
 				9DD3BA7024B4639400EDA308 /* AppDelegate.swift in Sources */,
 				9DD3BAA024B4791900EDA308 /* DirectoryListView.swift in Sources */,
+				9DDFA81D24B58F47008C2C2A /* DateManager.swift in Sources */,
 				9DD3BAAF24B4796C00EDA308 /* PieChartViewModel.swift in Sources */,
 				9DD3BAD224B47A1E00EDA308 /* PieChartSliceModel.swift in Sources */,
 				9DD3BAB824B4798E00EDA308 /* PieChartViewModelProtocol.swift in Sources */,
@@ -378,6 +385,7 @@
 				9DD3BAD324B47A1E00EDA308 /* PieChartObservableItemsModel.swift in Sources */,
 				9DD3BA7524B4639400EDA308 /* XcodeCleaner.xcdatamodeld in Sources */,
 				9DD3BAB724B4798E00EDA308 /* DirectoryListViewModelProtocol.swift in Sources */,
+				9DCE1C0B24B582D200E49E6D /* CoreDataManager.swift in Sources */,
 				9DD3BAD824B47A4800EDA308 /* PieChartAnySliceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

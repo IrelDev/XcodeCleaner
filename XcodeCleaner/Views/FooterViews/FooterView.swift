@@ -27,7 +27,7 @@ struct FooterView: View {
                     .frame(width: 100)
                     .lineLimit(1)
                 
-                StatisticView()
+                StatisticView(viewModel: viewModel.getViewModelForStatistic())
                     .padding(10)
             }
         }

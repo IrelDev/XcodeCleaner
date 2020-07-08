@@ -8,7 +8,15 @@
 
 import Foundation
 
-class StatisticViewModel: StatisticViewModelProtocol {
-    var totalCleaned: Int64? = 0
-    var lastTimeCleaned: Date? = Date()
+struct StatisticViewModel: StatisticViewModelProtocol {
+    var statistic: StatisticModel
+    
+    func getLastDate() -> String {
+        guard let date = statistic.lastTimeCleaned else { return "none" }
+        return DateManager.getStringDate(date: date)
+    }
+    func getTotalSize() -> String {
+        guard let size = statistic.totalCleaned else { return "none" }
+        return BytesToStringFormatter.format(size: size)
+    }
 }

@@ -9,6 +9,8 @@
 import Foundation
 
 protocol StatisticViewModelProtocol {
-    var totalCleaned: Int64? { get set }
-    var lastTimeCleaned: Date? { get set }
+    var statistic: StatisticModel { get set }
+    
+    func getLastDate() -> String
+    func getTotalSize() -> String
 }

@@ -124,12 +124,21 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             self.directoryManager.cleanDirectory(forType: .archives)
             
             DispatchQueue.main.async {
-                print(self.totalSize)
+                let statistic = StatisticModel(totalCleaned: self.totalSize, lastTimeCleaned: DateManager.getCurrentDate())
+                
+                CoreDataManager.shared.saveStatistic(statistic: statistic)
+                
                 self.isAlertPresented.toggle()
                 self.objectWillChange.send()
                 
                 self.isReadyToBeCleaned.toggle()
             }
         }
+    }
+    func getViewModelForStatistic() -> StatisticViewModelProtocol {
+        let statistic = CoreDataManager.shared.getStatistic()
+        let viewModel = StatisticViewModel(statistic: statistic)
+        
+        return viewModel
     }
 }

@@ -16,10 +16,11 @@ struct ContentView: View {
             FooterView()
         }
         .alert(isPresented: $viewModel.isAlertPresented) {
-            Alert(title: Text("Clean finished"), message: Text("\(BytesToStringFormatter.format(size: viewModel.totalSize)) was successfully cleaned!"), dismissButton: .default(Text("Ok")))
-        }.onDisappear {
-            self.viewModel.cleanBeforeScan()
-        }
+            Alert(title: Text("Clean finished"), message: Text("\(BytesToStringFormatter.format(size: viewModel.totalSize)) was successfully cleaned!"), dismissButton: .default(
+                Text("Ok"), action: {
+                    self.viewModel.cleanBeforeScan()
+            }))}
+        .frame(minWidth: 800, minHeight: 550)
     }
 }
 

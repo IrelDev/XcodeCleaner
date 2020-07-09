@@ -17,12 +17,12 @@ struct DropDownView: View {
             HStack {
                 HStack {
                     Text("\(viewModel.directories.count == 0 ? "": isExpanded ? "▲": "▼") \(viewModel.directoryName)")
-                        .font(.title)
+                        .font(.largeTitle)
                         .fontWeight(.heavy)
                     
                     Text("\(BytesToStringFormatter.format(size: viewModel.totalSize))")
                         .foregroundColor(viewModel.circleColor)
-                        .font(.title)
+                        .font(.largeTitle)
                         .fontWeight(.heavy)
                     
                     Circle()
@@ -34,19 +34,25 @@ struct DropDownView: View {
             }
             if viewModel.directories.count > 0 {
                 if isExpanded {
-                    VStack(spacing: 10) {
-                        ForEach(0 ..< viewModel.directories.count) { index in
-                            HStack {
-                                Text(self.viewModel.directories[index].name)
-                                    .lineLimit(1)
-                                Spacer()
-                                Text("\(BytesToStringFormatter.format(size: self.viewModel.directories[index].size))")
-                                    .foregroundColor(self.viewModel.circleColor)
+                    VStack {
+                        GeometryReader { geometryReader in
+                            ScrollView {
+                                VStack {
+                                    ForEach(0 ..< self.viewModel.directories.count) { index in
+                                        HStack {
+                                            Text(self.viewModel.directories[index].name)
+                                                .lineLimit(1)
+                                            Spacer()
+                                            Text("\(BytesToStringFormatter.format(size: self.viewModel.directories[index].size))")
+                                                .foregroundColor(self.viewModel.circleColor)
+                                        }
+                                    }
+                                }
+                                .padding(.top, geometryReader.size.height / 2)
                             }
+                            .font(.title)
                         }
                     }
-                    .font(.callout)
-                    .padding(35)
                 }
             }
         }

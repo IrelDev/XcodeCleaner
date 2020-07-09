@@ -15,12 +15,15 @@ struct DirectoryListView: View {
             Spacer()
             
             DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .derivedData))
+                .padding()
             Spacer()
             
             DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .deviceSupport))
+                .padding()
             Spacer()
             
             DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .archives))
+                .padding()
             Spacer()
         }
     }

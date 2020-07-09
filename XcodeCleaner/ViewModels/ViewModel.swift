@@ -32,7 +32,6 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     func startScan() {
         guard !isScanStarted else { return }
         cleanBeforeScan()
-        objectWillChange.send()
         
         isScanStarted.toggle()
         
@@ -109,6 +108,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         derivedData.removeAll()
         deviceSupport.removeAll()
         archives.removeAll()
+        
+        objectWillChange.send()
     }
     func getViewModelForPieChart() -> PieChartViewModelProtocol {
         var viewModel = PieChartViewModel()

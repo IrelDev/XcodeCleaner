@@ -126,6 +126,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         derivedData.removeAll()
         deviceSupport.removeAll()
         archives.removeAll()
+        iOSDeviceLogs.removeAll()
+        documentationCache.removeAll()
         
         objectWillChange.send()
     }

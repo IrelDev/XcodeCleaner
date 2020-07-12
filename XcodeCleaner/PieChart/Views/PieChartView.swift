@@ -10,11 +10,9 @@ import SwiftUI
 
 public struct PieChartView: View {
     @ObservedObject var items: PCItems
-    var sliceSeparatorColor: Color
     
-    public init(items: PCItems, sliceSeparatorColor: Color = .white) {
+    public init(items: PCItems) {
         self.items = items
-        self.sliceSeparatorColor = sliceSeparatorColor
     }
     
     public var body: some View {
@@ -28,7 +26,6 @@ public struct PieChartView: View {
                 if slices.count == 1 {
                     Circle()
                         .fill(slices.first!.color)
-                        .overlay(Circle().stroke(self.sliceSeparatorColor, lineWidth: 1))
                         .frame(width: geometryReader.size.width, height: geometryReader.size.height)
                     
                     ForEach(0 ..< slices.first!.subSlices.count, id: \.self) { subSliceIndex in
@@ -38,6 +35,8 @@ public struct PieChartView: View {
                     ForEach(0 ..< slices.count, id: \.self) { sliceIndex in
                         PieChartSliceView(rect: geometryReader.frame(in: .local), slice: slices[sliceIndex])
                     }
+                    .overlay(Circle().stroke(Color(NSColor.labelColor), lineWidth: 1))
+                    .frame(width: geometryReader.size.width, height: geometryReader.size.height)
                 }
             }
         }
@@ -56,11 +55,11 @@ struct PieChartView_Previews: PreviewProvider {
         return VStack {
             Spacer()
             
-            PieChartView(items: items, sliceSeparatorColor: .black)
+            PieChartView(items: items)
                 .frame(width: 100, height: 100, alignment: .center)
             Spacer()
             
-            PieChartView(items: itemsFromData, sliceSeparatorColor: .white)
+            PieChartView(items: itemsFromData)
                 .frame(width: 100, height: 100, alignment: .center)
             Spacer()
             

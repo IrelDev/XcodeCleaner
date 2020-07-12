@@ -37,8 +37,18 @@ struct DirectoryManager {
     }
     func getArchivesPath() -> String {
         let xcodePath = getXcodeDefaultPath()
-        let deviceSupportPath = "Archives/"
-        return "\(xcodePath + deviceSupportPath)"
+        let archivesPath = "Archives/"
+        return "\(xcodePath + archivesPath)"
+    }
+    func getIOSDeviceLogsPath() -> String {
+        let xcodePath = getXcodeDefaultPath()
+        let iOSDeviceLogsPath = "iOS Device Logs/"
+        return "\(xcodePath + iOSDeviceLogsPath)"
+    }
+    func getDocumentationCachePath() -> String {
+        let xcodePath = getXcodeDefaultPath()
+        let documentationCachePath = "DocumentationCache/"
+        return "\(xcodePath + documentationCachePath)"
     }
     func getSubDirectoriesForPath(path: String) -> [String] {
         let fileManager = FileManager.default
@@ -76,7 +86,6 @@ struct DirectoryManager {
             }
         }
         completion()
-        
         return directorySize
     }
     func normalizeDirectoryPath(directory: String) -> String {
@@ -98,6 +107,10 @@ struct DirectoryManager {
             prefix = getDeviceSupportPath()
         case .archives:
             prefix = getArchivesPath()
+        case .iOSDeviceLogs:
+            prefix = getIOSDeviceLogsPath()
+        case .documentationCache:
+            prefix = getDocumentationCachePath()
         }
         
         if directory.contains(prefix) {
@@ -117,6 +130,10 @@ struct DirectoryManager {
             directoryPath = getDeviceSupportPath()
         case .archives:
             directoryPath = getArchivesPath()
+        case .iOSDeviceLogs:
+            directoryPath = getIOSDeviceLogsPath()
+        case .documentationCache:
+            directoryPath = getDocumentationCachePath()
         }
         
         let directoryURL = URL(fileURLWithPath: normalizeDirectoryPath(directory: directoryPath))

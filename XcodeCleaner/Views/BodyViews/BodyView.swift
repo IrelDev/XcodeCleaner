@@ -29,7 +29,7 @@ struct BodyView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         var viewModel = PieChartViewModel()
-        viewModel.createItems(derivedData: [DirectoryModel(name: "Test", size: 2)], deviceSupport: [DirectoryModel(name: "Test", size: 2)], archives: [DirectoryModel(name: "Test", size: 2)])
+        viewModel.createItems(derivedData: [DirectoryModel(name: "Test", size: 2)], deviceSupport: [DirectoryModel(name: "Test", size: 2)], archives: [DirectoryModel(name: "Test", size: 2)], iOSDeviceLogs:  [DirectoryModel(name: "Test", size: 2)], documentationCache:  [DirectoryModel(name: "Test", size: 2)])
         
         return BodyView(viewModel: viewModel)
             .environmentObject(ViewModel())

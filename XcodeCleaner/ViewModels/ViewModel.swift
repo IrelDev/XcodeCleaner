@@ -21,6 +21,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     @Published var derivedData: [DirectoryModel] = []
     @Published var deviceSupport: [DirectoryModel] = []
     @Published var archives: [DirectoryModel] = []
+    @Published var iOSDeviceLogs: [DirectoryModel] = []
+    @Published var documentationCache: [DirectoryModel] = []
     
     @Published var isReadyToBeCleaned = false
     
@@ -44,10 +46,18 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         let archivesDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getArchivesPath())
         directoriesCount += archivesDirectories.count
         
+        let iOSDeviceLogsDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getIOSDeviceLogsPath())
+        directoriesCount += iOSDeviceLogsDirectories.count
+        
+        let documentationCacheDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDocumentationCachePath())
+        directoriesCount += documentationCacheDirectories.count
+        
         DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.derivedData, subDirectories: derivedDataDirectories, type: .derivedData)
             self.calculateSize(ofDirectory: &self.deviceSupport, subDirectories: deviceSupportDirectories, type: .deviceSupport)
             self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)
+            self.calculateSize(ofDirectory: &self.iOSDeviceLogs, subDirectories: iOSDeviceLogsDirectories, type: .iOSDeviceLogs)
+            self.calculateSize(ofDirectory: &self.documentationCache, subDirectories: documentationCacheDirectories, type: .documentationCache)
             
             self.isScanStarted.toggle()
             self.isReadyToBeCleaned.toggle()
@@ -93,6 +103,14 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             directories = archives
             directoryName = "Archives"
             circleColor = .orange
+        case .iOSDeviceLogs:
+            directories = iOSDeviceLogs
+            directoryName = "Device Logs"
+            circleColor = .purple
+        case .documentationCache:
+            directories = documentationCache
+            directoryName = "Doc. Cache"
+            circleColor = .gray
         }
         
         var viewModel = DirectoryListViewModel(directoryName: directoryName, directories: directories, circleColor: circleColor)
@@ -113,7 +131,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     }
     func getViewModelForPieChart() -> PieChartViewModelProtocol {
         var viewModel = PieChartViewModel()
-        viewModel.createItems(derivedData: derivedData, deviceSupport: deviceSupport, archives: archives)
+        viewModel.createItems(derivedData: derivedData, deviceSupport: deviceSupport, archives: archives, iOSDeviceLogs: iOSDeviceLogs, documentationCache: documentationCache)
         
         return viewModel
     }
@@ -123,6 +141,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             self.directoryManager.cleanDirectory(forType: .derivedData)
             self.directoryManager.cleanDirectory(forType: .deviceSupport)
             self.directoryManager.cleanDirectory(forType: .archives)
+            self.directoryManager.cleanDirectory(forType: .iOSDeviceLogs)
+            self.directoryManager.cleanDirectory(forType: .documentationCache)
             
             DispatchQueue.main.async {
                 let statistic = StatisticModel(totalCleaned: self.totalSize, lastTimeCleaned: DateManager.getCurrentDate())

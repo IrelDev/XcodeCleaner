@@ -32,11 +32,11 @@ public struct PieChartView: View {
                         .frame(width: geometryReader.size.width, height: geometryReader.size.height)
                     
                     ForEach(0 ..< slices.first!.subSlices.count, id: \.self) { subSliceIndex in
-                        PieChartSubSliceView(rect: geometryReader.frame(in: .local), subSlice: (slices.first!.subSlices[subSliceIndex]), sliceSeparatorColor: self.sliceSeparatorColor)
+                        PieChartSubSliceView(rect: geometryReader.frame(in: .local), subSlice: (slices.first!.subSlices[subSliceIndex]))
                     }
                 } else {
                     ForEach(0 ..< slices.count, id: \.self) { sliceIndex in
-                        PieChartSliceView(rect: geometryReader.frame(in: .local), slice: slices[sliceIndex], sliceSeparatorColor: self.sliceSeparatorColor)
+                        PieChartSliceView(rect: geometryReader.frame(in: .local), slice: slices[sliceIndex])
                     }
                 }
             }

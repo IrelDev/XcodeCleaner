@@ -12,8 +12,6 @@ struct PieChartSubSliceView: View {
     var rect: CGRect
     
     let subSlice: PieChartSubSliceModel
-    let sliceSeparatorColor: Color
-    
     @State var isVisible: Bool = false
     
     var body: some View {
@@ -24,7 +22,6 @@ struct PieChartSubSliceView: View {
         
         return Group { sliceShape
             .fill()
-            .overlay(sliceShape.stroke(sliceSeparatorColor, lineWidth: 1))
             .foregroundColor(subSlice.color)
             .scaleEffect(isVisible ? 1: 0)
             .animation(Animation.easeIn)
@@ -38,10 +35,9 @@ struct PieChartSubSliceView: View {
 struct PieChartSubSliceView_Previews: PreviewProvider {
     static var previews: some View {
         let pieSlice = PieChartSubSliceModel(value: .zero, color: .orange, startDegree: 50, endDegree: 130)
-        let sliceSeparatorColor = Color.black
         
         return GeometryReader { geometryReader in
-            PieChartSubSliceView(rect: geometryReader.frame(in: .local), subSlice: pieSlice, sliceSeparatorColor: sliceSeparatorColor)
+            PieChartSubSliceView(rect: geometryReader.frame(in: .local), subSlice: pieSlice)
         }
         .frame(width: 150, height: 150)
     }

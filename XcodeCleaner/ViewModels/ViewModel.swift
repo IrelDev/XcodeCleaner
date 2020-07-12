@@ -68,12 +68,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         }
     }
     func calculateSize(ofDirectory: inout [DirectoryModel], subDirectories: [String], type: DirectoryType) {
-        ofDirectory = subDirectories.map { directory in
-            let normalizedDirectoryPathForDisplay = self.directoryManager.normalizeDirectoryPathForDisplay(directory: directory, forType: type)
-            let normalizedDirectoryPath = self.directoryManager.normalizeDirectoryPath(directory: directory)
-            
-            
-            let directorySize = self.directoryManager.getDirectorySize(path: normalizedDirectoryPath) {
+        ofDirectory = subDirectories.map { path in
+            let directorySize = self.directoryManager.getSize(path: path) {
                 self.analyzedDirectoriesCount += 1
             }
             
@@ -81,6 +77,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
                 self.totalSize += directorySize
                 self.objectWillChange.send()
             }
+            let normalizedDirectoryPathForDisplay = directoryManager.normalizePathForDisplay(directory: path, forType: type)
             
             return DirectoryModel(name: normalizedDirectoryPathForDisplay, size: directorySize)
         }

@@ -67,36 +67,75 @@ struct DirectoryManager {
         
         return subDirectories
     }
-    func getDirectorySize(path: String, completion: @escaping () -> Void = { }) -> Int64 {
+    func getFileType(path: String) -> FileType? {
+        let fileManager = FileManager.default        
+        var isDirectory: ObjCBool = false
+        
+        if fileManager.fileExists(atPath: path, isDirectory: &isDirectory) {
+            if isDirectory.boolValue {
+                return .directory
+            } else {
+                return .file
+            }
+        }
+        return nil
+    }
+    func getSize(path: String, completion: @escaping () -> Void = { }) -> Int64 {
         let fileManager = FileManager.default
         var directorySize: Int64 = 0
         
-        let directories = fileManager.subpaths(atPath: path)
-        guard directories != nil else {
-            completion()
-            return 0 
+        var normalizedPath: String
+        let fileType = getFileType(path: path)
+        
+        switch fileType {
+        case .directory:
+            normalizedPath = normalizePathForDirectory(path: path)
+        case .file:
+            normalizedPath = normalizePathForFile(path: path)
+        case .none:
+            return 0
         }
         
-        for directory in directories! {
+        if fileType == .file {
             do {
-                let attributes = try fileManager.attributesOfItem(atPath: path + directory)
+                let attributes = try fileManager.attributesOfItem(atPath: normalizedPath)
                 directorySize += attributes[FileAttributeKey.size] as! Int64
             } catch {
                 print(error.localizedDescription)
+            }
+        } else {
+            let directories = fileManager.subpaths(atPath: normalizedPath)
+            
+            for directory in directories! {
+                do {
+                    let newPath = normalizedPath + directory
+                    let attributes = try fileManager.attributesOfItem(atPath: newPath)
+                    directorySize += attributes[FileAttributeKey.size] as! Int64
+                } catch {
+                    print(error.localizedDescription)
+                }
             }
         }
         completion()
         return directorySize
     }
-    func normalizeDirectoryPath(directory: String) -> String {
-        var newDirectoryPath = directory
+    func normalizePathForDirectory(path: String) -> String {
+        var newPath = path
         
-        if !newDirectoryPath.hasSuffix("/") {
-            newDirectoryPath += "/"
+        if !newPath.hasSuffix("/") {
+            newPath += "/"
         }
-        return newDirectoryPath
+        return newPath
     }
-    func normalizeDirectoryPathForDisplay(directory: String, forType type: DirectoryType) -> String {
+    func normalizePathForFile(path: String) -> String {
+        var newPath = path
+        
+        if newPath.hasSuffix("/") {
+            newPath.removeLast()
+        }
+        return newPath
+    }
+    func normalizePathForDisplay(directory: String, forType type: DirectoryType) -> String {
         var result = directory
         var prefix: String
         
@@ -136,7 +175,7 @@ struct DirectoryManager {
             directoryPath = getDocumentationCachePath()
         }
         
-        let directoryURL = URL(fileURLWithPath: normalizeDirectoryPath(directory: directoryPath))
+        let directoryURL = URL(fileURLWithPath: normalizePathForDirectory(path: directoryPath))
         
         do {
             try fileManager.removeItem(at: directoryURL)

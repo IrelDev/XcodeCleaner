@@ -19,6 +19,7 @@ struct DropDownView: View {
                     Text("\(viewModel.directories.count == 0 ? "": isExpanded ? "▲": "▼") \(viewModel.directoryName)")
                         .font(.title)
                         .fontWeight(.heavy)
+                    Spacer()
                     
                     Text("\(BytesToStringFormatter.format(size: viewModel.totalSize))")
                         .foregroundColor(viewModel.circleColor)
@@ -36,7 +37,7 @@ struct DropDownView: View {
                 if isExpanded {
                     VStack {
                         GeometryReader { geometryReader in
-                            ScrollView {
+                            List {
                                 VStack {
                                     ForEach(0 ..< self.viewModel.directories.count) { index in
                                         HStack {
@@ -48,7 +49,6 @@ struct DropDownView: View {
                                         }
                                     }
                                 }
-                                .padding(.top, geometryReader.size.height / 2)
                             }
                             .font(.body)
                         }

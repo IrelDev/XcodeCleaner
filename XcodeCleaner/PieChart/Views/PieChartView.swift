@@ -23,25 +23,16 @@ public struct PieChartView: View {
         
         return Group {
             GeometryReader { geometryReader in
-                if slices.count == 1 {
-                    Circle()
-                        .fill(slices.first!.color)
-                        .frame(width: geometryReader.size.width, height: geometryReader.size.height)
-                    
-                    ForEach(0 ..< slices.first!.subSlices.count, id: \.self) { subSliceIndex in
-                        PieChartSubSliceView(rect: geometryReader.frame(in: .local), subSlice: (slices.first!.subSlices[subSliceIndex]))
-                    }
-                } else {
-                    ForEach(0 ..< slices.count, id: \.self) { sliceIndex in
-                        PieChartSliceView(rect: geometryReader.frame(in: .local), slice: slices[sliceIndex])
-                    }
-                    .overlay(Circle().stroke(Color(NSColor.labelColor), lineWidth: 1))
-                    .frame(width: geometryReader.size.width, height: geometryReader.size.height)
+                ForEach(0 ..< slices.count, id: \.self) { sliceIndex in
+                    PieChartSliceView(rect: geometryReader.frame(in: .local), slice: slices[sliceIndex])
                 }
+                .overlay(Circle().stroke(Color(NSColor.labelColor), lineWidth: 1))
+                .frame(width: geometryReader.size.width, height: geometryReader.size.height)
             }
         }
     }
 }
+
 
 struct PieChartView_Previews: PreviewProvider {
     static var previews: some View {

@@ -24,7 +24,7 @@ struct PieChartSubSliceView: View {
         
         return Group { sliceShape
             .fill()
-            .overlay(sliceShape.stroke(sliceSeparatorColor, lineWidth: 2))
+            .overlay(sliceShape.stroke(sliceSeparatorColor, lineWidth: 1))
             .foregroundColor(subSlice.color)
             .scaleEffect(isVisible ? 1: 0)
             .animation(Animation.easeIn)

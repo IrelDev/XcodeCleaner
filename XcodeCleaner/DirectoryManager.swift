@@ -119,6 +119,23 @@ struct DirectoryManager {
         completion()
         return directorySize
     }
+    func getPath(for type: DirectoryType) -> String {
+        var path: String
+        
+        switch type {
+        case .derivedData:
+            path = getDerivedDataPath()
+        case .deviceSupport:
+            path = getDeviceSupportPath()
+        case .archives:
+            path = getArchivesPath()
+        case .iOSDeviceLogs:
+            path = getIOSDeviceLogsPath()
+        case .documentationCache:
+            path = getDocumentationCachePath()
+        }
+        return path
+    }
     func normalizePathForDirectory(path: String) -> String {
         var newPath = path
         
@@ -137,20 +154,7 @@ struct DirectoryManager {
     }
     func normalizePathForDisplay(directory: String, forType type: DirectoryType) -> String {
         var result = directory
-        var prefix: String
-        
-        switch type {
-        case .derivedData:
-            prefix = getDerivedDataPath()
-        case .deviceSupport:
-            prefix = getDeviceSupportPath()
-        case .archives:
-            prefix = getArchivesPath()
-        case .iOSDeviceLogs:
-            prefix = getIOSDeviceLogsPath()
-        case .documentationCache:
-            prefix = getDocumentationCachePath()
-        }
+        let prefix: String = getPath(for: type)
         
         if directory.contains(prefix) {
             result = directory.replacingOccurrences(of: prefix, with: "")
@@ -160,21 +164,7 @@ struct DirectoryManager {
     }
     func cleanDirectory(forType type: DirectoryType) {
         let fileManager = FileManager.default
-        
-        var directoryPath: String
-        switch type {
-        case .derivedData:
-            directoryPath = getDerivedDataPath()
-        case .deviceSupport:
-            directoryPath = getDeviceSupportPath()
-        case .archives:
-            directoryPath = getArchivesPath()
-        case .iOSDeviceLogs:
-            directoryPath = getIOSDeviceLogsPath()
-        case .documentationCache:
-            directoryPath = getDocumentationCachePath()
-        }
-        
+        let directoryPath = getPath(for: type)
         let directoryURL = URL(fileURLWithPath: normalizePathForDirectory(path: directoryPath))
         
         do {

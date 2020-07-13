@@ -11,6 +11,6 @@ import Foundation
 protocol PieChartViewModelProtocol {
     var items: [PieChartItemModel] { get set }
     
-    mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel])
+    mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel], iOSDeviceLogs: [DirectoryModel], documentationCache: [DirectoryModel])
     func getPCItems() -> PCItems
 }

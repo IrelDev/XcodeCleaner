@@ -11,7 +11,7 @@ import SwiftUI
 struct PieChartViewModel: PieChartViewModelProtocol {
     var items: [PieChartItemModel] = []
     
-    mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel]) {
+    mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel], iOSDeviceLogs: [DirectoryModel], documentationCache: [DirectoryModel]) {
         var derivedDataSize: Int64 = 0
         derivedData.forEach {
             derivedDataSize += $0.size
@@ -27,11 +27,23 @@ struct PieChartViewModel: PieChartViewModelProtocol {
             archivesSize += $0.size
         }
         
+        var iOSDeviceLogsSize: Int64 = 0
+        iOSDeviceLogs.forEach {
+            iOSDeviceLogsSize += $0.size
+        }
+        
+        var documentationCacheSize: Int64 = 0
+        documentationCache.forEach {
+            documentationCacheSize += $0.size
+        }
+        
         var derivedData: PieChartItemModel
         var deviceSupport: PieChartItemModel
         var archives: PieChartItemModel
+        var iOSDeviceLogs: PieChartItemModel
+        var documentationCache: PieChartItemModel
         
-        if derivedDataSize == 0 && deviceSupportSize == 0 && archivesSize == 0 {
+        if derivedDataSize == 0 && deviceSupportSize == 0 && archivesSize == 0 && iOSDeviceLogsSize == 0 && documentationCacheSize == 0 {
             let defaultValue = 1.0
             
             derivedData = PieChartItemModel(value: defaultValue, color: .pink)
@@ -44,8 +56,10 @@ struct PieChartViewModel: PieChartViewModelProtocol {
             derivedData = PieChartItemModel(value: Double(derivedDataSize), color: .pink)
             deviceSupport = PieChartItemModel(value: Double(deviceSupportSize), color: Color(.cyan))
             archives = PieChartItemModel(value: Double(archivesSize), color: .orange)
+            iOSDeviceLogs = PieChartItemModel(value: Double(iOSDeviceLogsSize), color: .purple)
+            documentationCache = PieChartItemModel(value: Double(documentationCacheSize), color: .gray)
 
-            let items = [archives, deviceSupport, derivedData]
+            let items = [archives, deviceSupport, derivedData, iOSDeviceLogs, documentationCache]
             
             var normalizedItems: [PieChartItemModel] = []
             

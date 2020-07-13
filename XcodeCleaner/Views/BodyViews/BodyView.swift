@@ -17,7 +17,7 @@ struct BodyView: View {
             Spacer()
             GeometryReader { geometryReader in
                 VStack {
-                    PieChartView(items: self.viewModel.getPCItems(), sliceSeparatorColor: .black)
+                    PieChartView(items: self.viewModel.getPCItems())
                         .frame(width: geometryReader.size.width / 2, height: geometryReader.size.height / 2)
                         .animation(.easeIn(duration: 1.0))
                 }
@@ -29,7 +29,7 @@ struct BodyView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         var viewModel = PieChartViewModel()
-        viewModel.createItems(derivedData: [DirectoryModel(name: "Test", size: 2)], deviceSupport: [DirectoryModel(name: "Test", size: 2)], archives: [DirectoryModel(name: "Test", size: 2)])
+        viewModel.createItems(derivedData: [DirectoryModel(name: "Test", size: 2)], deviceSupport: [DirectoryModel(name: "Test", size: 2)], archives: [DirectoryModel(name: "Test", size: 2)], iOSDeviceLogs:  [DirectoryModel(name: "Test", size: 2)], documentationCache:  [DirectoryModel(name: "Test", size: 2)])
         
         return BodyView(viewModel: viewModel)
             .environmentObject(ViewModel())

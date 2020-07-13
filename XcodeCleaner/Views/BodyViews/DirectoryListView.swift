@@ -14,18 +14,25 @@ struct DirectoryListView: View {
         VStack(alignment: .leading) {
             Spacer()
             
-            DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .derivedData))
-                .padding()
-            Spacer()
+            Group {
+                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .derivedData))
+                Spacer()
+                
+                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .deviceSupport))
+                Spacer()
+                
+                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .archives))
+                Spacer()
+                
+                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .iOSDeviceLogs))
+                Spacer()
+                
+                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .documentationCache))
+            }
             
-            DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .deviceSupport))
-                .padding()
-            Spacer()
-            
-            DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .archives))
-                .padding()
             Spacer()
         }
+        .padding(.leading)
     }
 }
 

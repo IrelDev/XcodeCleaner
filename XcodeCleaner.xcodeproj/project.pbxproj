@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D5A202724BC1A7F0066303A /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A202624BC1A7F0066303A /* ActivityIndicatorView.swift */; };
+		9DB4448224BAEFEE00165FB9 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4448124BAEFEE00165FB9 /* FileType.swift */; };
 		9DCE1C0B24B582D200E49E6D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */; };
 		9DD3BA7024B4639400EDA308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */; };
 		9DD3BA7224B4639400EDA308 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BA7124B4639400EDA308 /* ContentView.swift */; };
@@ -51,6 +53,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9D5A202624BC1A7F0066303A /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
+		9DB4448124BAEFEE00165FB9 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
 		9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		9DD3BA6C24B4639400EDA308 /* XcodeCleaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XcodeCleaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +112,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9DB4448024BAEFCE00165FB9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				9DD3BA8F24B478B600EDA308 /* DirectoryType.swift */,
+				9DB4448124BAEFEE00165FB9 /* FileType.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		9DD3BA6324B4639400EDA308 = {
 			isa = PBXGroup;
 			children = (
@@ -130,14 +143,14 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BA6F24B4639400EDA308 /* AppDelegate.swift */,
-				9DD3BA8F24B478B600EDA308 /* DirectoryType.swift */,
 				9DD3BA8D24B478AE00EDA308 /* DirectoryManager.swift */,
 				9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */,
-				9DD3BA9624B478CC00EDA308 /* Views */,
 				9DD3BA9124B478C100EDA308 /* Models */,
+				9DD3BA9624B478CC00EDA308 /* Views */,
 				9DD3BAA924B4795A00EDA308 /* ViewModels */,
 				9DD3BAB224B4798200EDA308 /* Protocols */,
 				9DD3BABB24B479B300EDA308 /* Helpers */,
+				9DB4448024BAEFCE00165FB9 /* Enums */,
 				9DD3BABE24B479C900EDA308 /* PieChart */,
 				9DD3BA7624B4639700EDA308 /* Assets.xcassets */,
 				9DD3BA7B24B4639700EDA308 /* Main.storyboard */,
@@ -170,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BA7124B4639400EDA308 /* ContentView.swift */,
+				9D5A202624BC1A7F0066303A /* ActivityIndicatorView.swift */,
 				9DD3BA9924B478FD00EDA308 /* BodyViews */,
 				9DD3BA9A24B4790200EDA308 /* FooterViews */,
 			);
@@ -361,6 +375,7 @@
 				9DD3BAA824B4794C00EDA308 /* ScanProgressView.swift in Sources */,
 				9DD3BAC524B479ED00EDA308 /* PieChartSubSliceView.swift in Sources */,
 				9DD3BA8E24B478AE00EDA308 /* DirectoryManager.swift in Sources */,
+				9DB4448224BAEFEE00165FB9 /* FileType.swift in Sources */,
 				9DD3BAB024B4796C00EDA308 /* ViewModel.swift in Sources */,
 				9DD3BA9424B478C900EDA308 /* DirectoryModel.swift in Sources */,
 				9DD3BAA224B4793900EDA308 /* FooterView.swift in Sources */,
@@ -381,6 +396,7 @@
 				9DD3BAD224B47A1E00EDA308 /* PieChartSliceModel.swift in Sources */,
 				9DD3BAB824B4798E00EDA308 /* PieChartViewModelProtocol.swift in Sources */,
 				9DD3BAB124B4796C00EDA308 /* DirectoryListViewModel.swift in Sources */,
+				9D5A202724BC1A7F0066303A /* ActivityIndicatorView.swift in Sources */,
 				9DD3BAC024B479DF00EDA308 /* PieChartSliceFactory.swift in Sources */,
 				9DD3BAD324B47A1E00EDA308 /* PieChartObservableItemsModel.swift in Sources */,
 				9DD3BA7524B4639400EDA308 /* XcodeCleaner.xcdatamodeld in Sources */,
@@ -534,6 +550,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ireldev.XcodeCleaner.XcodeCleaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -557,6 +574,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ireldev.XcodeCleaner.XcodeCleaner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

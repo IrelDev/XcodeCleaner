@@ -21,8 +21,11 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     @Published var derivedData: [DirectoryModel] = []
     @Published var deviceSupport: [DirectoryModel] = []
     @Published var archives: [DirectoryModel] = []
+    @Published var iOSDeviceLogs: [DirectoryModel] = []
+    @Published var documentationCache: [DirectoryModel] = []
     
     @Published var isReadyToBeCleaned = false
+    @Published var isCleanStarted = false
     
     @Published var isAlertPresented = false
     
@@ -31,9 +34,9 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     }
     func startScan() {
         guard !isScanStarted else { return }
-        cleanBeforeScan()
-        
         isScanStarted.toggle()
+        
+        cleanBeforeScan()
         
         let derivedDataDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDerivedDataPath())
         directoriesCount += derivedDataDirectories.count
@@ -44,10 +47,18 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         let archivesDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getArchivesPath())
         directoriesCount += archivesDirectories.count
         
+        let iOSDeviceLogsDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getIOSDeviceLogsPath())
+        directoriesCount += iOSDeviceLogsDirectories.count
+        
+        let documentationCacheDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDocumentationCachePath())
+        directoriesCount += documentationCacheDirectories.count
+        
         DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.derivedData, subDirectories: derivedDataDirectories, type: .derivedData)
             self.calculateSize(ofDirectory: &self.deviceSupport, subDirectories: deviceSupportDirectories, type: .deviceSupport)
             self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)
+            self.calculateSize(ofDirectory: &self.iOSDeviceLogs, subDirectories: iOSDeviceLogsDirectories, type: .iOSDeviceLogs)
+            self.calculateSize(ofDirectory: &self.documentationCache, subDirectories: documentationCacheDirectories, type: .documentationCache)
             
             self.isScanStarted.toggle()
             self.isReadyToBeCleaned.toggle()
@@ -58,12 +69,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         }
     }
     func calculateSize(ofDirectory: inout [DirectoryModel], subDirectories: [String], type: DirectoryType) {
-        ofDirectory = subDirectories.map { directory in
-            let normalizedDirectoryPathForDisplay = self.directoryManager.normalizeDirectoryPathForDisplay(directory: directory, forType: type)
-            let normalizedDirectoryPath = self.directoryManager.normalizeDirectoryPath(directory: directory)
-            
-            
-            let directorySize = self.directoryManager.getDirectorySize(path: normalizedDirectoryPath) {
+        ofDirectory = subDirectories.map { path in
+            let directorySize = self.directoryManager.getSize(path: path) {
                 self.analyzedDirectoriesCount += 1
             }
             
@@ -71,6 +78,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
                 self.totalSize += directorySize
                 self.objectWillChange.send()
             }
+            let normalizedDirectoryPathForDisplay = directoryManager.normalizePathForDisplay(directory: path, forType: type)
             
             return DirectoryModel(name: normalizedDirectoryPathForDisplay, size: directorySize)
         }
@@ -93,6 +101,14 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             directories = archives
             directoryName = "Archives"
             circleColor = .orange
+        case .iOSDeviceLogs:
+            directories = iOSDeviceLogs
+            directoryName = "Device Logs"
+            circleColor = .purple
+        case .documentationCache:
+            directories = documentationCache
+            directoryName = "Doc. Cache"
+            circleColor = .gray
         }
         
         var viewModel = DirectoryListViewModel(directoryName: directoryName, directories: directories, circleColor: circleColor)
@@ -108,21 +124,29 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         derivedData.removeAll()
         deviceSupport.removeAll()
         archives.removeAll()
+        iOSDeviceLogs.removeAll()
+        documentationCache.removeAll()
         
         objectWillChange.send()
     }
     func getViewModelForPieChart() -> PieChartViewModelProtocol {
         var viewModel = PieChartViewModel()
-        viewModel.createItems(derivedData: derivedData, deviceSupport: deviceSupport, archives: archives)
+        viewModel.createItems(derivedData: derivedData, deviceSupport: deviceSupport, archives: archives, iOSDeviceLogs: iOSDeviceLogs, documentationCache: documentationCache)
         
         return viewModel
     }
     //add chosen type
     func startClean() {
+        guard !isCleanStarted else { return }
+        isCleanStarted.toggle()
+        objectWillChange.send()
+        
         DispatchQueue.global(qos: .userInitiated).async {
             self.directoryManager.cleanDirectory(forType: .derivedData)
             self.directoryManager.cleanDirectory(forType: .deviceSupport)
             self.directoryManager.cleanDirectory(forType: .archives)
+            self.directoryManager.cleanDirectory(forType: .iOSDeviceLogs)
+            self.directoryManager.cleanDirectory(forType: .documentationCache)
             
             DispatchQueue.main.async {
                 let statistic = StatisticModel(totalCleaned: self.totalSize, lastTimeCleaned: DateManager.getCurrentDate())
@@ -130,6 +154,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
                 CoreDataManager.shared.saveStatistic(statistic: statistic)
                 
                 self.isAlertPresented.toggle()
+                self.isCleanStarted.toggle()
                 self.objectWillChange.send()
                 
                 self.isReadyToBeCleaned.toggle()

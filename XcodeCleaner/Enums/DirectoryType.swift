@@ -12,4 +12,6 @@ public enum DirectoryType {
     case derivedData
     case deviceSupport
     case archives
+    case iOSDeviceLogs
+    case documentationCache
 }

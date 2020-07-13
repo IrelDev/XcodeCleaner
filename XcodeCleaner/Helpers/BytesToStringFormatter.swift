@@ -9,7 +9,7 @@
 import Foundation
 
 struct BytesToStringFormatter {
-    static func format(size: Int64, allowedUnits: ByteCountFormatter.Units =  [.useGB, .useMB]) -> String {
+    static func format(size: Int64, allowedUnits: ByteCountFormatter.Units =  [.useKB, .useMB, .useGB]) -> String {
         let byteCountFormatter = ByteCountFormatter()
         byteCountFormatter.allowedUnits = allowedUnits
         

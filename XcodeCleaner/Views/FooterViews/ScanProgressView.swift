@@ -31,7 +31,7 @@ struct ScanProgressView: View {
                         cornerSize: CGSize(width: self.height / 2, height: self.height / 2),
                         style: .circular)
                 }
-                .fill(LinearGradient(gradient: Gradient(colors: [Color(.cyan), .pink, .orange]), startPoint: .leading, endPoint: .trailing))
+                .fill(LinearGradient(gradient: Gradient(colors: [Color(.cyan), .pink, .orange, .purple, .gray]), startPoint: .leading, endPoint: .trailing))
                 .animation(.easeInOut)
             }
             .frame(width: geometryReader.size.width, height: self.height)

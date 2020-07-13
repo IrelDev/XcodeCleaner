@@ -25,6 +25,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     @Published var documentationCache: [DirectoryModel] = []
     
     @Published var isReadyToBeCleaned = false
+    @Published var isCleanStarted = false
     
     @Published var isAlertPresented = false
     
@@ -33,9 +34,9 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     }
     func startScan() {
         guard !isScanStarted else { return }
-        cleanBeforeScan()
-        
         isScanStarted.toggle()
+        
+        cleanBeforeScan()
         
         let derivedDataDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDerivedDataPath())
         directoriesCount += derivedDataDirectories.count
@@ -136,6 +137,10 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     }
     //add chosen type
     func startClean() {
+        guard !isCleanStarted else { return }
+        isCleanStarted.toggle()
+        objectWillChange.send()
+        
         DispatchQueue.global(qos: .userInitiated).async {
             self.directoryManager.cleanDirectory(forType: .derivedData)
             self.directoryManager.cleanDirectory(forType: .deviceSupport)
@@ -149,6 +154,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
                 CoreDataManager.shared.saveStatistic(statistic: statistic)
                 
                 self.isAlertPresented.toggle()
+                self.isCleanStarted.toggle()
                 self.objectWillChange.send()
                 
                 self.isReadyToBeCleaned.toggle()

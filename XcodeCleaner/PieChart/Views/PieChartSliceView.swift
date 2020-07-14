@@ -21,22 +21,13 @@ struct PieChartSliceView: View {
         
         let sliceShape = PieChartSliceShape(startAngle: startAngle, endAngle: endAngle)
         
-        return Group { sliceShape
+        return sliceShape
             .fill()
             .foregroundColor(slice.color)
             .scaleEffect(isVisible ? 1: 0)
             .animation(Animation.easeIn)
             .onAppear {
                 self.isVisible.toggle()
-            }
-            if self.slice.subSlices.count > 0 {
-                GeometryReader { geometryReader in
-                    ForEach(0 ..< self.slice.subSlices.count, id: \.self) { subSliceIndex in
-                        PieChartSubSliceView(rect: geometryReader.frame(in: .local), subSlice: self.slice.subSlices[subSliceIndex])
-                            .padding(0 - min(geometryReader.size.width, geometryReader.size.height) / 2)
-                    }
-                }
-            }
         }
     }
 }

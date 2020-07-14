@@ -11,12 +11,9 @@ import SwiftUI
 public struct PieChartItemModel {
     public var value: Double
     public var color: Color
-    public var subItems: [PieChartItemModel]
     
-    public init(value: Double, color: Color, subItems: [PieChartItemModel] = []) {
+    public init(value: Double, color: Color) {
         self.value = value
         self.color = color
-        
-        self.subItems = subItems
     }
 }

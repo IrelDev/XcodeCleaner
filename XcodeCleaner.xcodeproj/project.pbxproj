@@ -39,16 +39,12 @@
 		9DD3BABA24B4798E00EDA308 /* StatisticViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAB624B4798E00EDA308 /* StatisticViewModelProtocol.swift */; };
 		9DD3BABD24B479BF00EDA308 /* BytesToStringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BABC24B479BF00EDA308 /* BytesToStringFormatter.swift */; };
 		9DD3BAC024B479DF00EDA308 /* PieChartSliceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BABF24B479DF00EDA308 /* PieChartSliceFactory.swift */; };
-		9DD3BAC524B479ED00EDA308 /* PieChartSubSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC224B479ED00EDA308 /* PieChartSubSliceView.swift */; };
 		9DD3BAC624B479ED00EDA308 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC324B479ED00EDA308 /* PieChartView.swift */; };
 		9DD3BAC724B479ED00EDA308 /* PieChartSliceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC424B479ED00EDA308 /* PieChartSliceView.swift */; };
-		9DD3BACB24B47A0400EDA308 /* PieChartSubSliceShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAC924B47A0400EDA308 /* PieChartSubSliceShape.swift */; };
 		9DD3BACC24B47A0400EDA308 /* PieChartSliceShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BACA24B47A0400EDA308 /* PieChartSliceShape.swift */; };
 		9DD3BAD224B47A1E00EDA308 /* PieChartSliceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BACE24B47A1D00EDA308 /* PieChartSliceModel.swift */; };
 		9DD3BAD324B47A1E00EDA308 /* PieChartObservableItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BACF24B47A1E00EDA308 /* PieChartObservableItemsModel.swift */; };
 		9DD3BAD424B47A1E00EDA308 /* PieChartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */; };
-		9DD3BAD524B47A1E00EDA308 /* PieChartSubSliceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */; };
-		9DD3BAD824B47A4800EDA308 /* PieChartAnySliceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */; };
 		9DDFA81D24B58F47008C2C2A /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DDFA81C24B58F47008C2C2A /* DateManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,16 +84,12 @@
 		9DD3BAB624B4798E00EDA308 /* StatisticViewModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticViewModelProtocol.swift; sourceTree = "<group>"; };
 		9DD3BABC24B479BF00EDA308 /* BytesToStringFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BytesToStringFormatter.swift; sourceTree = "<group>"; };
 		9DD3BABF24B479DF00EDA308 /* PieChartSliceFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceFactory.swift; sourceTree = "<group>"; };
-		9DD3BAC224B479ED00EDA308 /* PieChartSubSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceView.swift; sourceTree = "<group>"; };
 		9DD3BAC324B479ED00EDA308 /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		9DD3BAC424B479ED00EDA308 /* PieChartSliceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceView.swift; sourceTree = "<group>"; };
-		9DD3BAC924B47A0400EDA308 /* PieChartSubSliceShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceShape.swift; sourceTree = "<group>"; };
 		9DD3BACA24B47A0400EDA308 /* PieChartSliceShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceShape.swift; sourceTree = "<group>"; };
 		9DD3BACE24B47A1D00EDA308 /* PieChartSliceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSliceModel.swift; sourceTree = "<group>"; };
 		9DD3BACF24B47A1E00EDA308 /* PieChartObservableItemsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartObservableItemsModel.swift; sourceTree = "<group>"; };
 		9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartItemModel.swift; sourceTree = "<group>"; };
-		9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartSubSliceModel.swift; sourceTree = "<group>"; };
-		9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartAnySliceProtocol.swift; sourceTree = "<group>"; };
 		9DDFA81C24B58F47008C2C2A /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,7 +241,6 @@
 				9DD3BAC124B479E500EDA308 /* Views */,
 				9DD3BAC824B479F300EDA308 /* Shapes */,
 				9DD3BACD24B47A1000EDA308 /* Models */,
-				9DD3BAD624B47A2300EDA308 /* Protocols */,
 			);
 			path = PieChart;
 			sourceTree = "<group>";
@@ -258,7 +249,6 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BAC424B479ED00EDA308 /* PieChartSliceView.swift */,
-				9DD3BAC224B479ED00EDA308 /* PieChartSubSliceView.swift */,
 				9DD3BAC324B479ED00EDA308 /* PieChartView.swift */,
 			);
 			path = Views;
@@ -268,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				9DD3BACA24B47A0400EDA308 /* PieChartSliceShape.swift */,
-				9DD3BAC924B47A0400EDA308 /* PieChartSubSliceShape.swift */,
 			);
 			path = Shapes;
 			sourceTree = "<group>";
@@ -279,17 +268,8 @@
 				9DD3BAD024B47A1E00EDA308 /* PieChartItemModel.swift */,
 				9DD3BACF24B47A1E00EDA308 /* PieChartObservableItemsModel.swift */,
 				9DD3BACE24B47A1D00EDA308 /* PieChartSliceModel.swift */,
-				9DD3BAD124B47A1E00EDA308 /* PieChartSubSliceModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		9DD3BAD624B47A2300EDA308 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				9DD3BAD724B47A4800EDA308 /* PieChartAnySliceProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +353,6 @@
 				9DD3BA9024B478B600EDA308 /* DirectoryType.swift in Sources */,
 				9DD3BACC24B47A0400EDA308 /* PieChartSliceShape.swift in Sources */,
 				9DD3BAA824B4794C00EDA308 /* ScanProgressView.swift in Sources */,
-				9DD3BAC524B479ED00EDA308 /* PieChartSubSliceView.swift in Sources */,
 				9DD3BA8E24B478AE00EDA308 /* DirectoryManager.swift in Sources */,
 				9DB4448224BAEFEE00165FB9 /* FileType.swift in Sources */,
 				9DD3BAB024B4796C00EDA308 /* ViewModel.swift in Sources */,
@@ -384,9 +363,7 @@
 				9DD3BABD24B479BF00EDA308 /* BytesToStringFormatter.swift in Sources */,
 				9DD3BABA24B4798E00EDA308 /* StatisticViewModelProtocol.swift in Sources */,
 				9DD3BAAE24B4796C00EDA308 /* StatisticViewModel.swift in Sources */,
-				9DD3BAD524B47A1E00EDA308 /* PieChartSubSliceModel.swift in Sources */,
 				9DD3BAB924B4798E00EDA308 /* ViewModelProtocol.swift in Sources */,
-				9DD3BACB24B47A0400EDA308 /* PieChartSubSliceShape.swift in Sources */,
 				9DD3BAA624B4794800EDA308 /* StatisticView.swift in Sources */,
 				9DD3BAA424B4794300EDA308 /* DividerButtonView.swift in Sources */,
 				9DD3BA7024B4639400EDA308 /* AppDelegate.swift in Sources */,
@@ -402,7 +379,6 @@
 				9DD3BA7524B4639400EDA308 /* XcodeCleaner.xcdatamodeld in Sources */,
 				9DD3BAB724B4798E00EDA308 /* DirectoryListViewModelProtocol.swift in Sources */,
 				9DCE1C0B24B582D200E49E6D /* CoreDataManager.swift in Sources */,
-				9DD3BAD824B47A4800EDA308 /* PieChartAnySliceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,7 @@ public struct PieChartView: View {
                     PieChartSliceView(rect: geometryReader.frame(in: .local), slice: slices[sliceIndex])
                 }
                 .overlay(Circle().stroke(Color(NSColor.labelColor), lineWidth: 1))
+                .animation(Animation.easeIn)
                 .frame(width: geometryReader.size.width, height: geometryReader.size.height)
             }
         }

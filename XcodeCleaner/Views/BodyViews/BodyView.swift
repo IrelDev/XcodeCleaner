@@ -14,6 +14,7 @@ struct BodyView: View {
     var body: some View {
         HStack {
             DirectoryListView()
+            .frame(width: 350)
             Spacer()
             GeometryReader { geometryReader in
                 VStack {

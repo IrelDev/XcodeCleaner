@@ -24,7 +24,7 @@ struct PieChartSliceView: View {
         return sliceShape
             .fill()
             .foregroundColor(slice.color)
-            .scaleEffect(isVisible ? 1: 0)
+            .scaleEffect(isVisible ? 1: 0.01)
             .animation(Animation.easeIn)
             .onAppear {
                 self.isVisible.toggle()

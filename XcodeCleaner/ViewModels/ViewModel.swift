@@ -12,20 +12,20 @@ import SwiftUI
 class ViewModel: ObservableObject, ViewModelProtocol {
     private let directoryManager = DirectoryManager()
     
-    @Published var isScanStarted = false
+    var isScanStarted = false
     
-    @Published var directoriesCount: Int = 0
-    @Published var analyzedDirectoriesCount: Int = 0
-    @Published var totalSize: Int64 = 0
+    var directoriesCount: Int = 0
+    var analyzedDirectoriesCount: Int = 0
+    var totalSize: Int64 = 0
     
-    @Published var derivedData: [DirectoryModel] = []
-    @Published var deviceSupport: [DirectoryModel] = []
-    @Published var archives: [DirectoryModel] = []
-    @Published var iOSDeviceLogs: [DirectoryModel] = []
-    @Published var documentationCache: [DirectoryModel] = []
+    var derivedData: [DirectoryModel] = []
+    var deviceSupport: [DirectoryModel] = []
+    var archives: [DirectoryModel] = []
+    var iOSDeviceLogs: [DirectoryModel] = []
+    var documentationCache: [DirectoryModel] = []
     
-    @Published var isReadyToBeCleaned = false
-    @Published var isCleanStarted = false
+    var isReadyToBeCleaned = false
+    var isCleanStarted = false
     
     @Published var isAlertPresented = false
     

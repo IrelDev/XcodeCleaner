@@ -80,7 +80,7 @@ struct DirectoryManager {
         }
         return nil
     }
-    func getSize(path: String, completion: @escaping () -> Void = { }) -> Int64 {
+    func getSize(path: String, completion: () -> Void = { }) -> Int64 {
         let fileManager = FileManager.default
         var directorySize: Int64 = 0
         

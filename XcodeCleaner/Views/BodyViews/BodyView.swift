@@ -14,14 +14,12 @@ struct BodyView: View {
     var body: some View {
         HStack {
             DirectoryListView()
-            .frame(width: 350)
-            Spacer()
+                .frame(width: 350)
             GeometryReader { geometryReader in
-                VStack {
-                    PieChartView(items: self.viewModel.getPCItems())
-                        .frame(width: geometryReader.size.width / 2, height: geometryReader.size.height / 2)
-                        .animation(.easeIn(duration: 1.0))
-                }
+                PieChartView(items: self.viewModel.getPCItems())
+                    .frame(width: geometryReader.size.width / 2, height: geometryReader.size.height / 2)
+                    .position(CGPoint(x: geometryReader.size.width / 2, y: geometryReader.size.height / 2))
+                    .animation(.easeIn(duration: 1.0))
             }
         }
     }

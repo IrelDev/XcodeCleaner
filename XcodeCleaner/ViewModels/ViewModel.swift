@@ -53,7 +53,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         let documentationCacheDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDocumentationCachePath())
         directoriesCount += documentationCacheDirectories.count
         
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .utility).async {
             self.calculateSize(ofDirectory: &self.derivedData, subDirectories: derivedDataDirectories, type: .derivedData)
             self.calculateSize(ofDirectory: &self.deviceSupport, subDirectories: deviceSupportDirectories, type: .deviceSupport)
             self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)

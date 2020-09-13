@@ -15,24 +15,16 @@ struct DirectoryListView: View {
             Spacer()
             
             Group {
-                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .derivedData))
-                Spacer()
-                
-                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .deviceSupport))
-                Spacer()
-                
-                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .archives))
-                Spacer()
-                
-                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .iOSDeviceLogs))
-                Spacer()
-                
-                DropDownView(viewModel: viewModel.getViewModelForItemList(forType: .documentationCache))
+                ForEach(DirectoryType.allCases, id: \.self) { type in
+
+                    DropDownView(viewModel: self.viewModel.getViewModelForItemList(forType: type))
+                        .padding(.bottom)
+                }
             }
             
             Spacer()
         }
-        .padding(.leading)
+        .padding(.horizontal)
     }
 }
 

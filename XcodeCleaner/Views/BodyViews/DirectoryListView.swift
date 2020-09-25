@@ -16,9 +16,12 @@ struct DirectoryListView: View {
             
             Group {
                 ForEach(DirectoryType.allCases, id: \.self) { type in
-
-                    DropDownView(viewModel: self.viewModel.getViewModelForItemList(forType: type))
-                        .padding(.bottom)
+                    Group {
+                        if type != .derivedData {
+                            Spacer()
+                        }
+                        DropDownView(viewModel: self.viewModel.getViewModelForItemList(forType: type))
+                    }
                 }
             }
             

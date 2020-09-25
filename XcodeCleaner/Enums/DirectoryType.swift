@@ -6,9 +6,10 @@
 //  Copyright © 2020 Kirill Pustovalov. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-public enum DirectoryType {
+public enum DirectoryType: String, CaseIterable {
+   
     case derivedData
     case deviceSupport
     case archives

@@ -21,7 +21,7 @@ struct FooterView: View {
                     .padding(10)
                 
                 Text("\(BytesToStringFormatter.format(size: viewModel.totalSize, allowedUnits: [.useGB]))")
-                    .font(.title)
+                    .font(.system(size: 22))
                     .fontWeight(.heavy)
                     .foregroundColor(.pink)
                     .frame(width: 100)

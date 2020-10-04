@@ -52,6 +52,7 @@ struct DropDownView: View {
                                     }
                                 }
                             }
+                            .cornerRadius(10)
                             .font(.body)
                         }
                     }

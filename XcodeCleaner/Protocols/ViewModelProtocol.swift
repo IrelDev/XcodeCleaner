@@ -16,7 +16,7 @@ protocol ViewModelProtocol {
     var totalSize: Int64 { get set }
     
     var derivedData: [DirectoryModel] { get set }
-    var deviceSupport: [DirectoryModel] { get set }
+    var iOSDeviceSupport: [DirectoryModel] { get set }
     var archives: [DirectoryModel] { get set }
     
     var scanProgress: Double { get }

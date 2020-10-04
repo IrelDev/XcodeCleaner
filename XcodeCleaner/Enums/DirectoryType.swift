@@ -9,10 +9,10 @@
 import SwiftUI
 
 public enum DirectoryType: String, CaseIterable {
-   
     case derivedData
-    case deviceSupport
+    case iOSDeviceSupport
+    case watchOSDeviceSupport
+    case documentationCache
     case archives
     case iOSDeviceLogs
-    case documentationCache
 }

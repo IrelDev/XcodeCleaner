@@ -30,10 +30,15 @@ struct DirectoryManager {
         let derivedDataPath = "DerivedData/"
         return "\(xcodePath + derivedDataPath)"
     }
-    func getDeviceSupportPath() -> String {
+    func getIOSDeviceSupportPath() -> String {
         let xcodePath = getXcodeDefaultPath()
         let deviceSupportPath = "iOS DeviceSupport/"
         return "\(xcodePath + deviceSupportPath)"
+    }
+    func getWatchOSDeviceSupportPath() -> String {
+        let xcodePath = getXcodeDefaultPath()
+        let watchOSDeviceSupport = "watchOS DeviceSupport/"
+        return "\(xcodePath + watchOSDeviceSupport)"
     }
     func getArchivesPath() -> String {
         let xcodePath = getXcodeDefaultPath()
@@ -125,8 +130,10 @@ struct DirectoryManager {
         switch type {
         case .derivedData:
             path = getDerivedDataPath()
-        case .deviceSupport:
-            path = getDeviceSupportPath()
+        case .iOSDeviceSupport:
+            path = getIOSDeviceSupportPath()
+        case .watchOSDeviceSupport:
+            path = getWatchOSDeviceSupportPath()
         case .archives:
             path = getArchivesPath()
         case .iOSDeviceLogs:

@@ -11,15 +11,20 @@ import SwiftUI
 struct PieChartViewModel: PieChartViewModelProtocol {
     var items: [PieChartItemModel] = []
     
-    mutating func createItems(derivedData: [DirectoryModel], deviceSupport: [DirectoryModel], archives: [DirectoryModel], iOSDeviceLogs: [DirectoryModel], documentationCache: [DirectoryModel]) {
+    mutating func createItems(derivedData: [DirectoryModel], iOSDeviceSupport: [DirectoryModel], watchOSDeviceSupport: [DirectoryModel], archives: [DirectoryModel], iOSDeviceLogs: [DirectoryModel], documentationCache: [DirectoryModel]) {
         var derivedDataSize: Int64 = 0
         derivedData.forEach {
             derivedDataSize += $0.size
         }
         
-        var deviceSupportSize: Int64 = 0
-        deviceSupport.forEach {
-            deviceSupportSize += $0.size
+        var iOSDeviceSupportSize: Int64 = 0
+        iOSDeviceSupport.forEach {
+            iOSDeviceSupportSize += $0.size
+        }
+        
+        var watchOSDeviceSupportSize: Int64 = 0
+        watchOSDeviceSupport.forEach {
+            watchOSDeviceSupportSize += $0.size
         }
         
         var archivesSize: Int64 = 0
@@ -38,28 +43,30 @@ struct PieChartViewModel: PieChartViewModelProtocol {
         }
         
         var derivedData: PieChartItemModel
-        var deviceSupport: PieChartItemModel
+        var iOSDeviceSupport: PieChartItemModel
+        var watchOSDeviceSupport: PieChartItemModel
         var archives: PieChartItemModel
         var iOSDeviceLogs: PieChartItemModel
         var documentationCache: PieChartItemModel
         
-        if derivedDataSize == 0 && deviceSupportSize == 0 && archivesSize == 0 && iOSDeviceLogsSize == 0 && documentationCacheSize == 0 {
+        if derivedDataSize == 0 && iOSDeviceSupportSize == 0 && archivesSize == 0 && iOSDeviceLogsSize == 0 && watchOSDeviceSupportSize == 0 && documentationCacheSize == 0 {
             let defaultValue = 1.0
             
             derivedData = PieChartItemModel(value: defaultValue, color: .pink)
-            deviceSupport = PieChartItemModel(value: defaultValue, color: Color(.cyan))
+            iOSDeviceSupport = PieChartItemModel(value: defaultValue, color: Color(.cyan))
             archives = PieChartItemModel(value: defaultValue, color: .orange)
             
-            let items = [archives, deviceSupport, derivedData]
+            let items = [archives, iOSDeviceSupport, derivedData]
             self.items = items
         } else {
             derivedData = PieChartItemModel(value: Double(derivedDataSize), color: .pink)
-            deviceSupport = PieChartItemModel(value: Double(deviceSupportSize), color: Color(.cyan))
+            iOSDeviceSupport = PieChartItemModel(value: Double(iOSDeviceSupportSize), color: Color(.cyan))
+            watchOSDeviceSupport = PieChartItemModel(value: Double(watchOSDeviceSupportSize), color: .green)
             archives = PieChartItemModel(value: Double(archivesSize), color: .orange)
             iOSDeviceLogs = PieChartItemModel(value: Double(iOSDeviceLogsSize), color: .purple)
             documentationCache = PieChartItemModel(value: Double(documentationCacheSize), color: .gray)
 
-            let items = [archives, deviceSupport, derivedData, iOSDeviceLogs, documentationCache]
+            let items = [archives, iOSDeviceSupport, watchOSDeviceSupport, derivedData, iOSDeviceLogs, documentationCache]
             
             var normalizedItems: [PieChartItemModel] = []
             

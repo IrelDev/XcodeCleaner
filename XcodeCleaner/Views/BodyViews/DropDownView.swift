@@ -17,21 +17,23 @@ struct DropDownView: View {
             HStack {
                 HStack {
                     Text("\(viewModel.directories.count == 0 ? "": isExpanded ? "▲": "▼") \(viewModel.directoryName)")
-                        .font(.title)
+                        .font(.system(size: 22))
                         .fontWeight(.heavy)
                     Spacer()
                     
                     Text("\(BytesToStringFormatter.format(size: viewModel.totalSize))")
                         .foregroundColor(viewModel.circleColor)
-                        .font(.title)
+                        .font(.system(size: 22))
                         .fontWeight(.heavy)
                     
                     Circle()
                         .fill(viewModel.circleColor)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 22, height: 22)
                 }
             }.onTapGesture {
-                self.isExpanded.toggle()
+                withAnimation {
+                    self.isExpanded.toggle()
+                }
             }
             if viewModel.directories.count > 0 {
                 if isExpanded {

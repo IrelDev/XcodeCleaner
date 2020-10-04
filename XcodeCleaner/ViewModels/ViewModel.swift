@@ -19,7 +19,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     var totalSize: Int64 = 0
     
     var derivedData: [DirectoryModel] = []
-    var deviceSupport: [DirectoryModel] = []
+    var iOSDeviceSupport: [DirectoryModel] = []
+    var watchOSDeviceSupport: [DirectoryModel] = []
     var archives: [DirectoryModel] = []
     var iOSDeviceLogs: [DirectoryModel] = []
     var documentationCache: [DirectoryModel] = []
@@ -40,26 +41,41 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         
         let derivedDataDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDerivedDataPath())
         directoriesCount += derivedDataDirectories.count
+        DispatchQueue.global(qos: .utility).async {
+            self.calculateSize(ofDirectory: &self.derivedData, subDirectories: derivedDataDirectories, type: .derivedData)
+        }
         
-        let deviceSupportDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDeviceSupportPath())
-        directoriesCount += deviceSupportDirectories.count
+        let iOSDeviceSupportDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getIOSDeviceSupportPath())
+        directoriesCount += iOSDeviceSupportDirectories.count
+        DispatchQueue.global(qos: .utility).async {
+            self.calculateSize(ofDirectory: &self.iOSDeviceSupport, subDirectories: iOSDeviceSupportDirectories, type: .iOSDeviceSupport)
+        }
+        
+        let watchOSDeviceSupportDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getWatchOSDeviceSupportPath())
+        directoriesCount += watchOSDeviceSupportDirectories.count
+        DispatchQueue.global(qos: .utility).async {
+            self.calculateSize(ofDirectory: &self.watchOSDeviceSupport, subDirectories: watchOSDeviceSupportDirectories, type: .watchOSDeviceSupport)
+        }
         
         let archivesDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getArchivesPath())
         directoriesCount += archivesDirectories.count
+        DispatchQueue.global(qos: .utility).async {
+            self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)
+        }
         
         let iOSDeviceLogsDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getIOSDeviceLogsPath())
         directoriesCount += iOSDeviceLogsDirectories.count
+        DispatchQueue.global(qos: .utility).async {
+            self.calculateSize(ofDirectory: &self.iOSDeviceLogs, subDirectories: iOSDeviceLogsDirectories, type: .iOSDeviceLogs)
+        }
         
         let documentationCacheDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDocumentationCachePath())
         directoriesCount += documentationCacheDirectories.count
+        DispatchQueue.global(qos: .utility).async {
+            self.calculateSize(ofDirectory: &self.documentationCache, subDirectories: documentationCacheDirectories, type: .documentationCache)
+        }
         
         DispatchQueue.global(qos: .utility).async {
-            self.calculateSize(ofDirectory: &self.derivedData, subDirectories: derivedDataDirectories, type: .derivedData)
-            self.calculateSize(ofDirectory: &self.deviceSupport, subDirectories: deviceSupportDirectories, type: .deviceSupport)
-            self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)
-            self.calculateSize(ofDirectory: &self.iOSDeviceLogs, subDirectories: iOSDeviceLogsDirectories, type: .iOSDeviceLogs)
-            self.calculateSize(ofDirectory: &self.documentationCache, subDirectories: documentationCacheDirectories, type: .documentationCache)
-            
             self.isScanStarted.toggle()
             self.isReadyToBeCleaned.toggle()
             
@@ -93,10 +109,14 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             directories = derivedData
             directoryName = "Derived Data"
             circleColor = .pink
-        case .deviceSupport:
-            directories = deviceSupport
-            directoryName = "Device Support"
+        case .iOSDeviceSupport:
+            directories = iOSDeviceSupport
+            directoryName = "iOS Device Support"
             circleColor = Color(.cyan)
+        case .watchOSDeviceSupport:
+            directories = watchOSDeviceSupport
+            directoryName = "watchOS Device Support"
+            circleColor = .green
         case .archives:
             directories = archives
             directoryName = "Archives"
@@ -107,7 +127,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
             circleColor = .purple
         case .documentationCache:
             directories = documentationCache
-            directoryName = "Doc. Cache"
+            directoryName = "Documentation Cache"
             circleColor = .gray
         }
         
@@ -122,7 +142,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         totalSize = 0
         
         derivedData.removeAll()
-        deviceSupport.removeAll()
+        iOSDeviceSupport.removeAll()
+        watchOSDeviceSupport.removeAll()
         archives.removeAll()
         iOSDeviceLogs.removeAll()
         documentationCache.removeAll()
@@ -131,7 +152,7 @@ class ViewModel: ObservableObject, ViewModelProtocol {
     }
     func getViewModelForPieChart() -> PieChartViewModelProtocol {
         var viewModel = PieChartViewModel()
-        viewModel.createItems(derivedData: derivedData, deviceSupport: deviceSupport, archives: archives, iOSDeviceLogs: iOSDeviceLogs, documentationCache: documentationCache)
+        viewModel.createItems(derivedData: derivedData, iOSDeviceSupport: iOSDeviceSupport, watchOSDeviceSupport: watchOSDeviceSupport, archives: archives, iOSDeviceLogs: iOSDeviceLogs, documentationCache: documentationCache)
         
         return viewModel
     }
@@ -143,7 +164,8 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.directoryManager.cleanDirectory(forType: .derivedData)
-            self.directoryManager.cleanDirectory(forType: .deviceSupport)
+            self.directoryManager.cleanDirectory(forType: .iOSDeviceSupport)
+            self.directoryManager.cleanDirectory(forType: .watchOSDeviceSupport)
             self.directoryManager.cleanDirectory(forType: .archives)
             self.directoryManager.cleanDirectory(forType: .iOSDeviceLogs)
             self.directoryManager.cleanDirectory(forType: .documentationCache)

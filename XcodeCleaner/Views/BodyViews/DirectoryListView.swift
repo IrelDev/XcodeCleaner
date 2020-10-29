@@ -10,6 +10,9 @@ import SwiftUI
 
 struct DirectoryListView: View {
     @EnvironmentObject var viewModel: ViewModel
+    
+    
+    
     var body: some View {
         VStack(alignment: .leading) {
             Spacer()

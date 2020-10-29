@@ -12,8 +12,12 @@ struct DropDownView: View {
     @State var isExpanded = false
     var viewModel: DirectoryListViewModelProtocol
     
+    @ObservedObject var observableFilterModel = ObservableFilterModel()
+    var sortMethods = ["Alphabetical", "Size"]
+    
     var body: some View {
         VStack(spacing: 5) {
+            
             HStack {
                 HStack {
                     Text("\(viewModel.directories.count == 0 ? "": isExpanded ? "▲": "▼") \(viewModel.directoryName)")
@@ -36,17 +40,26 @@ struct DropDownView: View {
                 }
             }
             if viewModel.directories.count > 0 {
+                let sortedArray =  self.viewModel.directories.sorted(by: { (model1, model2) -> Bool in
+                    return (observableFilterModel.sortMethod == 0) ? model1.name.lowercased() < model2.name.lowercased() : model1.size > model2.size
+                })
                 if isExpanded {
                     VStack {
                         GeometryReader { geometryReader in
                             List {
+                                Picker(selection: $observableFilterModel.sortMethod, label: Text("Filter option")) {
+                                    ForEach(0 ..< sortMethods.count) { index in
+                                        Text(self.sortMethods[index]).tag(index)
+                                    }
+                                }.pickerStyle(SegmentedPickerStyle())
+                                
                                 VStack {
-                                    ForEach(0 ..< self.viewModel.directories.count) { index in
+                                    ForEach(0 ..< sortedArray.count) { index in
                                         HStack {
-                                            Text(self.viewModel.directories[index].name)
+                                            Text(sortedArray[index].name)
                                                 .lineLimit(1)
                                             Spacer()
-                                            Text("\(BytesToStringFormatter.format(size: self.viewModel.directories[index].size))")
+                                            Text("\(BytesToStringFormatter.format(size: sortedArray[index].size))")
                                                 .foregroundColor(self.viewModel.circleColor)
                                         }
                                     }

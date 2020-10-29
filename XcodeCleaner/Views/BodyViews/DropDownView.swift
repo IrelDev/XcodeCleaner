@@ -13,7 +13,7 @@ struct DropDownView: View {
     var viewModel: DirectoryListViewModelProtocol
     
     @ObservedObject var observableFilterModel = ObservableFilterModel()
-    var sortMethods = ["Alphabetical", "Size"]
+    var sortMethods = ["Name", "Size"]
     
     var body: some View {
         VStack(spacing: 5) {
@@ -47,12 +47,18 @@ struct DropDownView: View {
                     VStack {
                         GeometryReader { geometryReader in
                             List {
-                                Picker(selection: $observableFilterModel.sortMethod, label: Text("Filter option")) {
-                                    ForEach(0 ..< sortMethods.count) { index in
-                                        Text(self.sortMethods[index]).tag(index)
-                                    }
-                                }.pickerStyle(SegmentedPickerStyle())
-                                
+                                HStack {
+                                    Text("Filter by")
+                                    Spacer()
+                                    Spacer()
+                                    Picker(selection: $observableFilterModel.sortMethod, label: Text("")) {
+                                        ForEach(0 ..< sortMethods.count) { index in
+                                            Text(self.sortMethods[index]).tag(index)
+                                        }
+                                    }.pickerStyle(SegmentedPickerStyle())
+                                    .frame(width: 200)
+                                                .clipped()
+                                }
                                 VStack {
                                     ForEach(0 ..< sortedArray.count) { index in
                                         HStack {

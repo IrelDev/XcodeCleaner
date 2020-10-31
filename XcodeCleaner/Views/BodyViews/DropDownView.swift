@@ -49,6 +49,7 @@ struct DropDownView: View {
                             List {
                                 HStack {
                                     Text("Filter by")
+                                        .font(.headline)
                                     Spacer()
                                     Spacer()
                                     Picker(selection: $observableFilterModel.sortMethod, label: Text("")) {

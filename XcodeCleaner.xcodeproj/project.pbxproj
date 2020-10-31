@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		437E9B7E254AD908009DA4DC /* ObservableFilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E9B7D254AD908009DA4DC /* ObservableFilterModel.swift */; };
 		9D5A202724BC1A7F0066303A /* ActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A202624BC1A7F0066303A /* ActivityIndicatorView.swift */; };
 		9DB4448224BAEFEE00165FB9 /* FileType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB4448124BAEFEE00165FB9 /* FileType.swift */; };
 		9DCE1C0B24B582D200E49E6D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		437E9B7D254AD908009DA4DC /* ObservableFilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableFilterModel.swift; sourceTree = "<group>"; };
 		9D5A202624BC1A7F0066303A /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		9DB4448124BAEFEE00165FB9 /* FileType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileType.swift; sourceTree = "<group>"; };
 		9DCE1C0A24B582D200E49E6D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				9DD3BAAD24B4796C00EDA308 /* DirectoryListViewModel.swift */,
 				9DD3BAAB24B4796C00EDA308 /* PieChartViewModel.swift */,
 				9DD3BAAA24B4796C00EDA308 /* StatisticViewModel.swift */,
+				437E9B7D254AD908009DA4DC /* ObservableFilterModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				9DD3BA9E24B4791900EDA308 /* DropDownView.swift in Sources */,
 				9DD3BABD24B479BF00EDA308 /* BytesToStringFormatter.swift in Sources */,
 				9DD3BABA24B4798E00EDA308 /* StatisticViewModelProtocol.swift in Sources */,
+				437E9B7E254AD908009DA4DC /* ObservableFilterModel.swift in Sources */,
 				9DD3BAAE24B4796C00EDA308 /* StatisticViewModel.swift in Sources */,
 				9DD3BAB924B4798E00EDA308 /* ViewModelProtocol.swift in Sources */,
 				9DD3BAA624B4794800EDA308 /* StatisticView.swift in Sources */,

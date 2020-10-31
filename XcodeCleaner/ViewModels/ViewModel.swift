@@ -41,41 +41,41 @@ class ViewModel: ObservableObject, ViewModelProtocol {
         
         let derivedDataDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDerivedDataPath())
         directoriesCount += derivedDataDirectories.count
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.derivedData, subDirectories: derivedDataDirectories, type: .derivedData)
         }
         
         let iOSDeviceSupportDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getIOSDeviceSupportPath())
         directoriesCount += iOSDeviceSupportDirectories.count
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.iOSDeviceSupport, subDirectories: iOSDeviceSupportDirectories, type: .iOSDeviceSupport)
         }
         
         let watchOSDeviceSupportDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getWatchOSDeviceSupportPath())
         directoriesCount += watchOSDeviceSupportDirectories.count
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.watchOSDeviceSupport, subDirectories: watchOSDeviceSupportDirectories, type: .watchOSDeviceSupport)
         }
         
         let archivesDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getArchivesPath())
         directoriesCount += archivesDirectories.count
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.archives, subDirectories: archivesDirectories, type: .archives)
         }
         
         let iOSDeviceLogsDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getIOSDeviceLogsPath())
         directoriesCount += iOSDeviceLogsDirectories.count
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.iOSDeviceLogs, subDirectories: iOSDeviceLogsDirectories, type: .iOSDeviceLogs)
         }
         
         let documentationCacheDirectories = directoryManager.getSubDirectoriesForPath(path: directoryManager.getDocumentationCachePath())
         directoriesCount += documentationCacheDirectories.count
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.calculateSize(ofDirectory: &self.documentationCache, subDirectories: documentationCacheDirectories, type: .documentationCache)
         }
         
-        DispatchQueue.global(qos: .utility).async {
+        DispatchQueue.global(qos: .userInitiated).async {
             self.isScanStarted.toggle()
             self.isReadyToBeCleaned.toggle()
             

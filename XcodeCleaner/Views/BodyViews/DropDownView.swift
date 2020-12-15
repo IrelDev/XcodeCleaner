@@ -58,19 +58,18 @@ struct DropDownView: View {
                                         }
                                     }.pickerStyle(SegmentedPickerStyle())
                                     .frame(width: 200)
-                                                .clipped()
+                                    .clipped()
                                 }
-                                VStack {
-                                    ForEach(0 ..< sortedArray.count) { index in
-                                        HStack {
-                                            Text(sortedArray[index].name)
-                                                .lineLimit(1)
-                                            Spacer()
-                                            Text("\(BytesToStringFormatter.format(size: sortedArray[index].size))")
-                                                .foregroundColor(self.viewModel.circleColor)
-                                        }
+                                ForEach(0 ..< sortedArray.count) { index in
+                                    HStack {
+                                        Text(sortedArray[index].name)
+                                            .lineLimit(1)
+                                        Spacer()
+                                        Text("\(BytesToStringFormatter.format(size: sortedArray[index].size))")
+                                            .foregroundColor(self.viewModel.circleColor)
                                     }
                                 }
+                                
                             }
                             .font(.body)
                         }
